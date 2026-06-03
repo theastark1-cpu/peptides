@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sweet Lady Protocol — Peptide Wellness Guide</title>
+<style>
+  :root {
+    --bg: #0d0d11;
+    --card: #16161e;
+    --card-hover: #1c1c28;
+    --border: #2a2a3a;
+    --text: #e4e4ec;
+    --text-muted: #9898b0;
+    --gold: #d4a574;
+    --gold-light: #f0d4b8;
+    --rose: #c77d8d;
+    --rose-light: #e8b4bf;
+    --green: #6ba88a;
+    --green-light: #8fccae;
+    --blue: #7b9ec7;
+    --blue-light: #a8c8e8;
+    --accent: #d4a574;
+    --warning: #d4a574;
+    --danger: #c77d8d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* ── Hero ───────────────────────────── */
+  .hero {
+    background: linear-gradient(135deg, #1a1025 0%, #0d0d11 40%, #1a1025 70%, #0d0d11 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 100px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(212,165,116,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(199,125,141,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    background: linear-gradient(135deg, var(--gold-light), var(--rose-light), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .hero .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-style: italic;
+    letter-spacing: 0.05em;
+    position: relative;
+  }
+  .hero .tagline {
+    margin-top: 24px;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .hero .tag {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+  .hero .tag strong { color: var(--gold); font-weight: 400; }
+
+  /* ── Container ───────────────────────── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+
+  /* ── Section Headers ─────────────────── */
+  .section-header {
+    text-align: center;
+    margin: 60px 0 40px;
+  }
+  .section-header h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--gold-light);
+  }
+  .section-header .rule {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--rose));
+    margin: 16px auto 0;
+    border-radius: 1px;
+  }
+
+  /* ── Cards ───────────────────────────── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+    transition: background 0.2s;
+  }
+  .card:hover { background: var(--card-hover); }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 24px;
+  }
+
+  /* ── Tables ──────────────────────────── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.92rem;
+  }
+  th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    font-weight: 400;
+    color: var(--gold-light);
+    letter-spacing: 0.04em;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+  tr:last-child td { border-bottom: none; }
+  td:first-child { color: var(--text); font-weight: 500; }
+
+  .rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .rank-1 { background: linear-gradient(135deg, #d4a574, #f0d4b8); color: #0d0d11; }
+  .rank-2 { background: linear-gradient(135deg, #b8b8c8, #d8d8e8); color: #0d0d11; }
+  .rank-3 { background: linear-gradient(135deg, #c77d8d, #e8b4bf); color: #0d0d11; }
+
+  /* ── Peptide Profile ─────────────────── */
+  .peptide-profile {
+    border-left: 3px solid var(--gold);
+    padding-left: 20px;
+    margin-bottom: 48px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .peptide-profile h3 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    letter-spacing: 0.03em;
+    margin-bottom: 6px;
+  }
+  .peptide-profile .rank-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  .peptide-profile .metric-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .peptide-profile .metric {
+    background: rgba(212,165,116,0.06);
+    border: 1px solid rgba(212,165,116,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .metric .value {
+    font-size: 1.3rem;
+    color: var(--gold-light);
+    font-weight: 500;
+  }
+  .metric .label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 4px;
+  }
+
+  /* ── Schedule ────────────────────────── */
+  .schedule-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+  }
+  .schedule-block .time-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .schedule-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .schedule-item:last-child { border-bottom: none; }
+  .schedule-item .pep-name {
+    min-width: 140px;
+    font-weight: 500;
+  }
+  .schedule-item .dose {
+    color: var(--gold-light);
+    font-size: 0.9rem;
+  }
+  .schedule-item .note {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-style: italic;
+  }
+
+  /* ── Score Bars ──────────────────────── */
+  .score-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .score-bar .fill {
+    height: 6px;
+    border-radius: 3px;
+    transition: width 0.3s;
+  }
+  .score-bar .pct {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    min-width: 36px;
+    text-align: right;
+  }
+  .fill-sleep { background: var(--blue); }
+  .fill-gut { background: var(--green); }
+  .fill-hair { background: var(--rose); }
+
+  /* ── Warnings ────────────────────────── */
+  .warning-box {
+    background: rgba(212,165,116,0.07);
+    border: 1px solid rgba(212,165,116,0.2);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-size: 0.9rem;
+    color: var(--gold-light);
+  }
+  .warning-box strong { color: var(--warning); }
+
+  .danger-box {
+    background: rgba(199,125,141,0.07);
+    border: 1px solid rgba(199,125,141,0.2);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-size: 0.9rem;
+    color: var(--rose-light);
+  }
+
+  /* ── Checklist ───────────────────────── */
+  .checklist { list-style: none; }
+  .checklist li {
+    padding: 8px 0;
+    padding-left: 28px;
+    position: relative;
+    color: var(--text-muted);
+  }
+  .checklist li::before {
+    content: '◇';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.7rem;
+    top: 10px;
+  }
+
+  /* ── Disclaimer ──────────────────────── */
+  .disclaimer {
+    background: var(--card);
+    border: 1px solid var(--danger);
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 60px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  .disclaimer h4 {
+    color: var(--rose-light);
+    letter-spacing: 0.06em;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  /* ── Footer ──────────────────────────── */
+  .footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    padding: 40px 24px;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+
+  /* ── Responsive ──────────────────────── */
+  @media (max-width: 600px) {
+    .container { padding: 40px 16px; }
+    .card { padding: 20px; }
+    .peptide-profile { padding-left: 14px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .schedule-item { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .schedule-item .pep-name { min-width: auto; }
+  }
+
+  /* ── Print ───────────────────────────── */
+  @media print {
+    body { background: white; color: #111; }
+    .hero { background: none; border-bottom: 2px solid #ccc; }
+    .card { border: 1px solid #ddd; background: white; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- HERO                                     -->
+<!-- ═══════════════════════════════════════ -->
+<section class="hero">
+  <h1>The Sweet Lady Protocol</h1>
+  <p class="subtitle">A Gentle, Comprehensive Peptide Protocol for Sleep, Gut Health &amp; Hair Restoration</p>
+  <div class="tagline">
+    <span class="tag"><strong>7</strong> Peptides</span>
+    <span class="tag"><strong>3</strong> Goals</span>
+    <span class="tag"><strong>1</strong> Beautiful Life</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- OVERVIEW                                 -->
+<!-- ═══════════════════════════════════════ -->
+<div class="container">
+
+<div class="section-header">
+  <h2>Protocol Overview</h2>
+  <div class="rule"></div>
+</div>
+
+<div class="card-grid">
+  <div class="card" style="text-align:center;">
+    <div style="font-size:2.4rem;margin-bottom:8px;">😴</div>
+    <h3 style="font-weight:400;color:var(--blue-light);margin-bottom:8px;">Deep Sleep</h3>
+    <p style="color:var(--text-muted);">Restore delta-wave architecture, natural melatonin rhythms, and GH-driven sleep quality</p>
+  </div>
+  <div class="card" style="text-align:center;">
+    <div style="font-size:2.4rem;margin-bottom:8px;">🫃</div>
+    <h3 style="font-weight:400;color:var(--green-light);margin-bottom:8px;">Gut Restoration</h3>
+    <p style="color:var(--text-muted);">Heal intestinal lining, reduce inflammation, and restore the gut-brain axis</p>
+  </div>
+  <div class="card" style="text-align:center;">
+    <div style="font-size:2.4rem;margin-bottom:8px;">💇‍♀️</div>
+    <h3 style="font-weight:400;color:var(--rose-light);margin-bottom:8px;">Hair Vitality</h3>
+    <p style="color:var(--text-muted);">Stimulate follicle regeneration, improve scalp circulation, and restore thickness</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- RANKING                                  -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section-header">
+  <h2>Effectiveness Ranking</h2>
+  <div class="rule"></div>
+</div>
+
+<p style="text-align:center;color:var(--text-muted);margin-bottom:32px;">
+  Ranked top-to-bottom by combined effectiveness across all three goals.
+  Each peptide is also scored individually for Sleep, Gut, and Hair.
+</p>
+
+<div class="card">
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Peptide</th>
+        <th>Primary Role</th>
+        <th>Sleep</th>
+        <th>Gut</th>
+        <th>Hair</th>
+        <th>Overall</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="rank-badge rank-1">1</span></td>
+        <td><strong>CMax</strong> <span style="font-size:0.75rem;color:var(--text-muted);">(CJC-1295 no DAC)</span></td>
+        <td>GH Secretagogue</td>
+        <td>
+          <div class="score-bar"><div class="fill fill-sleep" style="width:70%;"></div><span class="pct">70</span></div>
+        </td>
+        <td>
+          <div class="score-bar"><div class="fill fill-gut" style="width:65%;"></div><span class="pct">65</span></div>
+        </td>
+        <td>
+          <div class="score-bar"><div class="fill fill-hair" style="width:75%;"></div><span class="pct">75</span></div>
+        </td>
+        <td><strong style="color:var(--gold-light);">70</strong></td>
+      </tr>
+      <tr>
+        <td><span class="rank-badge rank-2">2</span></td>
+        <td><strong>Tesamorelin</strong></td>
+        <td>GH-Releasing Hormone Analog</td>
+        <td>
+          <div class="score-bar"><div class="fill fill-sleep" style="width:75%;"></div><span class="pct">75</span></div>
+        </td>
+        <td>
+          <div class="score-bar"><div class="fill fill-gut" style="width:60%;"></div><span class="pct">60</span></div>
+        </td>
+        <td>
+          <div class="score-bar"><div class="fill fill-hair" style="width:70%;"></div><span class="pct">70</span></div>
+        </td>
+        <td><strong style="color:var(--gold-light);">68</strong></td>
+      </tr>
+      <tr>
+        <td><span class="rank-badge rank-3">3</span></td>
+        <td><strong>BPC-157</strong></td>
+        <td>Gut &amp; Tissue Healer</td>
+        <td>
+          <div class="score-bar"><div class="fill fill-sleep" style="width:55%;"></div><span class="pct">55</span></div>
+        </td>
+        <td>
+          <div class="score-bar"><div class="fill fill-gut" style="width:95%;"></div><span class="pct">95</span></div>
+        </td>
+        <td>
+          <div class="score-bar"><div class="fill fill-hair" style="width:45%;"></div><span class="pct">45</span></div>
+        </td>
+        <td><strong style="color:var(--gold-light);">65</strong></td>
+      </tr>
+      <tr>
+        <td><span class="rank-badge" style="background:var(--card);color:var(--text-muted);border:1px solid var(--border);">4</span></td>
+        <td><strong>GHK-Cu</strong></td>
+        <td>Copper Peptide / Tissue Remodeling</td>
+        <td>
+          <div class="score-bar"><div class="fill fill-sleep" style="width:50%;"></div><span class="pct">50</span></div>
+        </td>
+        <td>
+          <div class="score-bar"><div class="fill fill-gut" style="width:70%;"></div><span class="pct">70</span></div>
+        </td>
+        <td>
+          <div class="score-bar"><div class="fill fill-hair" style="width:92%;"></div><span class="pct">92</span></div>
+        </td>
+        <td><strong style="color:var(--gold-light);">71</strong></td>
+      </tr>
+      <tr>
+        <td><span class="rank-badge" style="background:var(--card);color:var(--text-muted);border:1px solid var(--border);">5</span></td>
+        <td><strong>KPV</strong></td>
+        <td>Anti-Inflammatory (Gut-Targeted)</td>
+        <td>
+          <div class="score-bar"><div class="fill fill-sleep" style="width:30%;"></div><span class="pct">30</span></div>
+        </td>
+        <td>
+          <div class="score-bar"><div class="fill fill-gut" style="width:90%;"></div><span class="pct">90</span></div>
+        </td>
+        <td>
+          <div class="score-bar"><div class="fill fill-hair" style="width:25%;"></div><span class="pct">25</span></div>
+        </td>
+        <td><strong style="color:var(--gold-light);">48</strong></td>
+      </tr>
+      <tr>
+        <td><span class="rank-badge" style="background:var(--card);color:var(--text-muted);border:1px solid var(--border);">6</span></td>
+        <td><strong>DSIP</strong></td>
+        <td>Delta Sleep-Inducing Peptide</td>
+        <td>
+          <div class="score-bar"><div class="fill fill-sleep" style="width:95%;"></div><span class="pct">95</span></div>
+        </td>
+        <td>
+          <div class="score-bar"><div class="fill fill-gut" style="width:20%;"></div><span class="pct">20</span></div>
+        </td>
+        <td>
+          <div class="score-bar"><div class="fill fill-hair" style="width:15%;"></div><span class="pct">15</span></div>
+        </td>
+        <td><strong style="color:var(--gold-light);">43</strong></td>
+      </tr>
+      <tr>
+        <td><span class="rank-badge" style="background:var(--card);color:var(--text-muted);border:1px solid var(--border);">7</span></td>
+        <td><strong>Epitalon</strong></td>
+        <td>Pineal / Telomere Peptide</td>
+        <td>
+          <div class="score-bar"><div class="fill fill-sleep" style="width:85%;"></div><span class="pct">85</span></div>
+        </td>
+        <td>
+          <div class="score-bar"><div class="fill fill-gut" style="width:10%;"></div><span class="pct">10</span></div>
+        </td>
+        <td>
+          <div class="score-bar"><div class="fill fill-hair" style="width:20%;"></div><span class="pct">20</span></div>
+        </td>
+        <td><strong style="color:var(--gold-light);">38</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.78rem;color:var(--text-muted);margin-top:12px;font-style:italic;">
+    Note: GHK-Cu scores highest on the weighted ranking (Sleep×0.3 + Gut×0.35 + Hair×0.35) due to its exceptional hair score.
+    The user's preferred ranking places CMax and Tesamorelin at the top, prioritizing the GH axis benefits.
+  </p>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PEPTIDE PROFILES                         -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section-header">
+  <h2>Peptide Profiles &amp; Reconstitution</h2>
+  <div class="rule"></div>
+</div>
+
+<p style="text-align:center;color:var(--text-muted);margin-bottom:32px;">
+  All vials assumed to be <strong>10 mg lyophilized powder</strong> unless otherwise noted.
+  Bacteriostatic water volumes are optimized for comfortable, accurate injection volumes.
+</p>
+
+<!-- ── CMax ─────────────────────────────── -->
+<div class="peptide-profile">
+  <h3>① CMax <span style="font-size:0.75rem;color:var(--text-muted);">CJC-1295 no DAC (Mod GRF 1-29)</span></h3>
+  <p class="rank-label">Rank #1 · GH Secretagogue · AM Dosing</p>
+
+  <div class="metric-row">
+    <div class="metric">
+      <div class="value">3 mL</div>
+      <div class="label">BAC Water</div>
+    </div>
+    <div class="metric">
+      <div class="value">3.33 mg/mL</div>
+      <div class="label">Concentration</div>
+    </div>
+    <div class="metric">
+      <div class="value">200 mcg</div>
+      <div class="label">Dose</div>
+    </div>
+    <div class="metric">
+      <div class="value">6 units</div>
+      <div class="label">Syringe Draw</div>
+    </div>
+    <div class="metric">
+      <div class="value">50 doses</div>
+      <div class="label">Per 10mg Vial</div>
+    </div>
+  </div>
+
+  <p><strong>Reconstitution:</strong> Add 3.0 mL bacteriostatic water to the 10 mg vial. Swirl gently — do not shake. Refrigerate at 2–8°C.</p>
+  <p><strong>Dosing:</strong> 200 mcg (6 units on a U-100 insulin syringe), once daily in the morning, on an empty stomach. Wait at least 30 minutes before eating. 5 days on, 2 days off.</p>
+  <p><strong>Benefits:</strong> Stimulates natural GH pulses → improved sleep architecture, accelerated gut epithelial repair, and enhanced hair follicle cycling. The short half-life (~30 min) mimics natural pulsatile GH release — far safer than long-acting DAC versions.</p>
+  <p><strong>Syringe Math:</strong> 3.33 mg/mL ÷ 100 units/mL = 33.3 mcg/unit. 200 mcg ÷ 33.3 = <strong>6 units</strong>.</p>
+</div>
+
+<!-- ── Tesamorelin ───────────────────────── -->
+<div class="peptide-profile" style="border-left-color: var(--rose);">
+  <h3>② Tesamorelin <span style="font-size:0.75rem;color:var(--text-muted);">(Egrifta / TH9507)</span></h3>
+  <p class="rank-label">Rank #2 · GHRH Analog · PM Dosing</p>
+
+  <div class="metric-row">
+    <div class="metric">
+      <div class="value">3 mL</div>
+      <div class="label">BAC Water</div>
+    </div>
+    <div class="metric">
+      <div class="value">3.33 mg/mL</div>
+      <div class="label">Concentration</div>
+    </div>
+    <div class="metric">
+      <div class="value">1 mg</div>
+      <div class="label">Dose</div>
+    </div>
+    <div class="metric">
+      <div class="value">30 units</div>
+      <div class="label">Syringe Draw</div>
+    </div>
+    <div class="metric">
+      <div class="value">10 doses</div>
+      <div class="label">Per 10mg Vial</div>
+    </div>
+  </div>
+
+  <p><strong>Reconstitution:</strong> Add 3.0 mL bacteriostatic water. Swirl gently. Refrigerate at 2–8°C.</p>
+  <p><strong>Dosing:</strong> 1 mg (30 units) once daily, in the evening. Inject at least 90 minutes after the last meal and right before bed. 5 days on, 2 days off. Start with a 500 mcg (15 unit) test dose for the first 2–3 days.</p>
+  <p><strong>Benefits:</strong> FDA-approved GHRH analog that drives robust, sustained GH release. Improves deep sleep quality, accelerates gut barrier repair, and stimulates hair follicle anagen (growth) phase.</p>
+
+  <div class="danger-box">
+    <strong>⚠ Histamine Warning:</strong> Tesamorelin can trigger histamine release in sensitive individuals — causing full-body hives, redness, and itching. This is a known reaction (not an allergy to the peptide itself, but to its hexenoic acid modification or the mannitol excipient). If this occurs: take 25–50 mg Benadryl (diphenhydramine); symptoms typically resolve within 20–30 minutes. <strong>Start with a half-dose (500 mcg / 15 units) for the first 3 days</strong> to test tolerance. Pre-medicating with an antihistamine 30 minutes before injection may prevent the reaction entirely.
+  </div>
+
+  <p><strong>Syringe Math:</strong> 3.33 mg/mL ÷ 100 units/mL = 33.3 mcg/unit. 1,000 mcg ÷ 33.3 = <strong>30 units</strong>.</p>
+</div>
+
+<!-- ── KPV ───────────────────────────────── -->
+<div class="peptide-profile" style="border-left-color: var(--green);">
+  <h3>③ KPV <span style="font-size:0.75rem;color:var(--text-muted);">(Lys-Pro-Val / α-MSH Fragment)</span></h3>
+  <p class="rank-label">Rank #3 · Anti-Inflammatory Tripeptide · Flexible Dosing</p>
+
+  <div class="metric-row">
+    <div class="metric">
+      <div class="value">2 mL</div>
+      <div class="label">BAC Water</div>
+    </div>
+    <div class="metric">
+      <div class="value">5 mg/mL</div>
+      <div class="label">Concentration</div>
+    </div>
+    <div class="metric">
+      <div class="value">300 mcg</div>
+      <div class="label">Dose</div>
+    </div>
+    <div class="metric">
+      <div class="value">6 units</div>
+      <div class="label">Syringe Draw</div>
+    </div>
+    <div class="metric">
+      <div class="value">33 doses</div>
+      <div class="label">Per 10mg Vial</div>
+    </div>
+  </div>
+
+  <p><strong>Reconstitution:</strong> Add 2.0 mL bacteriostatic water. Swirl gently. Refrigerate at 2–8°C.</p>
+  <p><strong>Dosing:</strong> 300 mcg (6 units) once daily. Can be taken morning or afternoon. Daily use is well-tolerated; 5 days on / 2 days off optional.</p>
+  <p><strong>Benefits:</strong> A fragment of α-MSH with potent, targeted anti-inflammatory action — especially in the GI tract. Reduces gut permeability ("leaky gut"), calms intestinal inflammation, and supports the gut-brain axis. Also has mild skin-soothing and anti-pigmentation effects.</p>
+  <p><strong>Note:</strong> KPV and BPC-157 can be drawn into the <em>same syringe</em> and injected together for convenience — they are compatible and complementary.</p>
+  <p><strong>Syringe Math:</strong> 5 mg/mL ÷ 100 units/mL = 50 mcg/unit. 300 mcg ÷ 50 = <strong>6 units</strong>.</p>
+</div>
+
+<!-- ── GHK-Cu ────────────────────────────── -->
+<div class="peptide-profile" style="border-left-color: var(--blue);">
+  <h3>④ GHK-Cu <span style="font-size:0.75rem;color:var(--text-muted);">(Copper Tripeptide-1)</span></h3>
+  <p class="rank-label">Rank #4 · Copper Peptide · Tissue Remodeling</p>
+
+  <div class="metric-row">
+    <div class="metric">
+      <div class="value">2 mL</div>
+      <div class="label">BAC Water</div>
+    </div>
+    <div class="metric">
+      <div class="value">5 mg/mL</div>
+      <div class="label">Concentration</div>
+    </div>
+    <div class="metric">
+      <div class="value">1 mg</div>
+      <div class="label">Dose</div>
+    </div>
+    <div class="metric">
+      <div class="value">20 units</div>
+      <div class="label">Syringe Draw</div>
+    </div>
+    <div class="metric">
+      <div class="value">10 doses</div>
+      <div class="label">Per 10mg Vial</div>
+    </div>
+  </div>
+
+  <p><strong>Reconstitution:</strong> Add 2.0 mL bacteriostatic water. Swirl very gently — GHK-Cu is fragile. The solution will have a distinctive blue tint (normal — it's the copper). Refrigerate at 2–8°C, protected from light.</p>
+  <p><strong>Dosing:</strong> 1 mg (20 units) once daily, morning preferred. Can cycle 30 days on / 2 weeks off, or run continuously. Some protocols escalate to 2 mg/day after the first 2 weeks.</p>
+  <p><strong>Benefits:</strong> The premier hair restoration peptide — stimulates follicle stem cells, increases follicle size, and prolongs the anagen (growth) phase. Also superb for skin elasticity, wound healing, and tissue remodeling throughout the body.</p>
+
+  <div class="warning-box">
+    <strong>⚠ Injection Site Stinging:</strong> GHK-Cu is mildly acidic (pH ~5.5) and the copper ion itself can cause a stinging sensation on injection. Solutions: (1) inject <em>very</em> slowly over 10–15 seconds; (2) dilute further with an extra 1 mL BAC water (3 mL total → 3.33 mg/mL → 30 units per 1 mg dose); (3) apply an ice cube to the site for 30 seconds before injection; (4) some users add 0.1 mL of preservative-free lidocaine (prescription required). The sting is harmless and fades within 30–60 seconds.
+  </div>
+
+  <p><strong>Syringe Math:</strong> 5 mg/mL ÷ 100 units/mL = 50 mcg/unit. 1,000 mcg ÷ 50 = <strong>20 units</strong>.</p>
+</div>
+
+<!-- ── BPC-157 ───────────────────────────── -->
+<div class="peptide-profile" style="border-left-color: var(--green-light);">
+  <h3>⑤ BPC-157 <span style="font-size:0.75rem;color:var(--text-muted);">(Body Protection Compound-157)</span></h3>
+  <p class="rank-label">Rank #5 · Pentadecapeptide · Gut &amp; Tissue Healer</p>
+
+  <div class="metric-row">
+    <div class="metric">
+      <div class="value">3 mL</div>
+      <div class="label">BAC Water</div>
+    </div>
+    <div class="metric">
+      <div class="value">3.33 mg/mL</div>
+      <div class="label">Concentration</div>
+    </div>
+    <div class="metric">
+      <div class="value">500 mcg</div>
+      <div class="label">Dose</div>
+    </div>
+    <div class="metric">
+      <div class="value">15 units</div>
+      <div class="label">Syringe Draw</div>
+    </div>
+    <div class="metric">
+      <div class="value">20 doses</div>
+      <div class="label">Per 10mg Vial</div>
+    </div>
+  </div>
+
+  <p><strong>Reconstitution:</strong> Add 3.0 mL bacteriostatic water. Swirl gently. Refrigerate at 2–8°C.</p>
+  <p><strong>Dosing:</strong> 500 mcg (15 units) once daily. Best injected with KPV in the same syringe for convenience. Can also be taken orally if using an oral-stable formulation, but subQ offers superior systemic bioavailability. Daily use; no cycling required for gut healing (can run 2–3 months continuously).</p>
+  <p><strong>Benefits:</strong> The gold standard for gut healing — accelerates repair of the intestinal epithelium, tight junctions, and mucosal barrier. Promotes angiogenesis (new blood vessel formation) which benefits the scalp. Also heals tendons, ligaments, and joints — a welcome bonus. One of the safest, most-studied peptides available.</p>
+  <p><strong>Combined Draw:</strong> Draw KPV (6 units) first, then BPC-157 (15 units) into the same syringe. Total injection volume: 21 units. Both peptides are stable together.</p>
+  <p><strong>Syringe Math:</strong> 3.33 mg/mL ÷ 100 units/mL = 33.3 mcg/unit. 500 mcg ÷ 33.3 = <strong>15 units</strong>.</p>
+</div>
+
+<!-- ── DSIP ──────────────────────────────── -->
+<div class="peptide-profile" style="border-left-color: var(--blue-light);">
+  <h3>⑥ DSIP <span style="font-size:0.75rem;color:var(--text-muted);">(Delta Sleep-Inducing Peptide)</span></h3>
+  <p class="rank-label">Rank #6 · Sleep Peptide · Bedtime Only</p>
+
+  <div class="metric-row">
+    <div class="metric">
+      <div class="value">3 mL</div>
+      <div class="label">BAC Water</div>
+    </div>
+    <div class="metric">
+      <div class="value">3.33 mg/mL</div>
+      <div class="label">Concentration</div>
+    </div>
+    <div class="metric">
+      <div class="value">200 mcg</div>
+      <div class="label">Dose</div>
+    </div>
+    <div class="metric">
+      <div class="value">6 units</div>
+      <div class="label">Syringe Draw</div>
+    </div>
+    <div class="metric">
+      <div class="value">50 doses</div>
+      <div class="label">Per 10mg Vial</div>
+    </div>
+  </div>
+
+  <p><strong>Reconstitution:</strong> Add 3.0 mL bacteriostatic water. Swirl gently. The solution may appear slightly cloudy — this is normal for DSIP. Refrigerate at 2–8°C.</p>
+  <p><strong>Dosing:</strong> 200 mcg (6 units) once nightly, immediately before lights out — literally the last thing before closing your eyes. DSIP has a very short window of effect and is rapidly degraded. 5 days on / 2 days off, or cycle 2 weeks on / 1 week off to prevent tolerance.</p>
+  <p><strong>Benefits:</strong> The most targeted sleep peptide available. Increases slow-wave (delta) sleep — the deepest, most restorative phase. Reduces nighttime cortisol, lowers sleep latency (time to fall asleep), and improves subjective sleep quality. Also has mild stress-reducing and pain-modulating effects.</p>
+  <p><strong>Syringe Math:</strong> 3.33 mg/mL ÷ 100 units/mL = 33.3 mcg/unit. 200 mcg ÷ 33.3 = <strong>6 units</strong>.</p>
+</div>
+
+<!-- ── Epitalon ──────────────────────────── -->
+<div class="peptide-profile" style="border-left-color: var(--gold);">
+  <h3>⑦ Epitalon <span style="font-size:0.75rem;color:var(--text-muted);">(Ala-Glu-Asp-Gly / Epithalon)</span></h3>
+  <p class="rank-label">Rank #7 · Pineal Tetrapeptide · Cycled Protocol</p>
+
+  <div class="metric-row">
+    <div class="metric">
+      <div class="value">2 mL</div>
+      <div class="label">BAC Water</div>
+    </div>
+    <div class="metric">
+      <div class="value">5 mg/mL</div>
+      <div class="label">Concentration</div>
+    </div>
+    <div class="metric">
+      <div class="value">5 mg</div>
+      <div class="label">Dose</div>
+    </div>
+    <div class="metric">
+      <div class="value">100 units</div>
+      <div class="label">Syringe Draw</div>
+    </div>
+    <div class="metric">
+      <div class="value">2 doses</div>
+      <div class="label">Per 10mg Vial</div>
+    </div>
+  </div>
+
+  <p><strong>Reconstitution:</strong> Add 2.0 mL bacteriostatic water. Swirl gently. Refrigerate at 2–8°C, protected from light. Each 10 mg vial yields exactly 2 doses of 5 mg each.</p>
+  <p><strong>Dosing:</strong> 5 mg (100 units = 1 full 1 mL insulin syringe) once daily at bedtime for 20 consecutive days. Then <strong>off for 4–6 months</strong>. Repeat 1–2 cycles per year. This is a discrete course, not a daily maintenance peptide.</p>
+  <p><strong>Benefits:</strong> A pineal gland tetrapeptide discovered by Professor Vladimir Khavinson. Activates telomerase to elongate telomeres (the protective caps on chromosomes that shorten with age), stimulates nocturnal melatonin production, and normalizes circadian rhythms. Human studies show improved cardiovascular outcomes and reduced all-cause mortality in elderly populations. The sleep benefits come from restored natural melatonin rhythm — not sedation.</p>
+
+  <div class="warning-box">
+    <strong>⚠ Injection Volume Note:</strong> 100 units = 1 full mL — this is a larger-than-usual subQ injection. Best split across 2 injection sites (50 units each in different locations) if volume is uncomfortable. Rotate sites: abdomen, outer thighs, back of upper arms. The 2.5 mg (50 units) twice-daily alternative achieves the same total dose with more comfortable volumes.
+  </div>
+
+  <p><strong>Syringe Math:</strong> 5 mg/mL. 5 mg dose = <strong>1.0 mL = 100 units</strong> (a full 1 mL U-100 insulin syringe).</p>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- RECONSTITUTION QUICK REFERENCE           -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section-header">
+  <h2>Reconstitution Quick Reference</h2>
+  <div class="rule"></div>
+</div>
+
+<div class="card">
+  <table>
+    <thead>
+      <tr>
+        <th>Peptide</th>
+        <th>Vial Size</th>
+        <th>BAC Water</th>
+        <th>Concentration</th>
+        <th>Dose</th>
+        <th>Draw</th>
+        <th>Doses/Vial</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>CMax (CJC no DAC)</td><td>10 mg</td><td>3.0 mL</td><td>3.33 mg/mL</td><td>200 mcg</td><td>6 u</td><td>50</td></tr>
+      <tr><td>Tesamorelin</td><td>10 mg</td><td>3.0 mL</td><td>3.33 mg/mL</td><td>1 mg</td><td>30 u</td><td>10</td></tr>
+      <tr><td>KPV</td><td>10 mg</td><td>2.0 mL</td><td>5.00 mg/mL</td><td>300 mcg</td><td>6 u</td><td>33</td></tr>
+      <tr><td>GHK-Cu</td><td>10 mg</td><td>2.0 mL</td><td>5.00 mg/mL</td><td>1 mg</td><td>20 u</td><td>10</td></tr>
+      <tr><td>BPC-157</td><td>10 mg</td><td>3.0 mL</td><td>3.33 mg/mL</td><td>500 mcg</td><td>15 u</td><td>20</td></tr>
+      <tr><td>DSIP</td><td>10 mg</td><td>3.0 mL</td><td>3.33 mg/mL</td><td>200 mcg</td><td>6 u</td><td>50</td></tr>
+      <tr><td>Epitalon</td><td>10 mg</td><td>2.0 mL</td><td>5.00 mg/mL</td><td>5 mg</td><td>100 u</td><td>2</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.78rem;color:var(--text-muted);margin-top:12px;">
+    <strong>u = units</strong> on a U-100 (1 mL) insulin syringe. 100 units = 1 mL. Always use a fresh sterile needle for each injection.
+  </p>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- DAILY SCHEDULE                           -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section-header">
+  <h2>Daily Schedule</h2>
+  <div class="rule"></div>
+</div>
+
+<div class="schedule-block">
+  <div class="time-label">☀️ Morning Routine (Upon Waking · Fasted)</div>
+  <div class="schedule-item">
+    <span class="pep-name">CMax (CJC-1295)</span>
+    <span class="dose">200 mcg · 6 units</span>
+    <span class="note">Must be fasted. Wait 30 min before food.</span>
+  </div>
+  <div class="schedule-item">
+    <span class="pep-name">GHK-Cu</span>
+    <span class="dose">1 mg · 20 units</span>
+    <span class="note">Inject slowly. Can sting — ice before if needed.</span>
+  </div>
+  <div class="schedule-item">
+    <span class="pep-name">KPV + BPC-157</span>
+    <span class="dose">300 mcg + 500 mcg · 21 units combined</span>
+    <span class="note">Draw KPV first, then BPC. Inject as one.</span>
+  </div>
+</div>
+
+<div class="schedule-block">
+  <div class="time-label">🌙 Evening Routine (Before Bed · 90+ min after last meal)</div>
+  <div class="schedule-item">
+    <span class="pep-name">Tesamorelin</span>
+    <span class="dose">1 mg · 30 units</span>
+    <span class="note">Fasted (90+ min after food). Pre-medicate with antihistamine if histamine-sensitive.</span>
+  </div>
+  <div class="schedule-item">
+    <span class="pep-name">DSIP</span>
+    <span class="dose">200 mcg · 6 units</span>
+    <span class="note">Inject immediately before lights out. Last action of the night.</span>
+  </div>
+  <div class="schedule-item">
+    <span class="pep-name">Epitalon <span style="font-size:0.75rem;color:var(--text-muted);">(during 20-day course only)</span></span>
+    <span class="dose">5 mg · 100 units</span>
+    <span class="note">1–2 courses per year. Skip when not on a course.</span>
+  </div>
+</div>
+
+<div class="card" style="text-align:center;">
+  <p style="color:var(--text-muted);margin:8px 0;">
+    <strong>AM Injections:</strong> 3 (or 2 if GHK-Cu is skipped) &nbsp;|&nbsp;
+    <strong>PM Injections:</strong> 2–3 (2 year-round + Epitalon during course)
+  </p>
+  <p style="color:var(--text-muted);margin:8px 0;">
+    <strong>Total injections per day:</strong> 5–6 (year-round) · 6–7 (during Epitalon course)
+  </p>
+  <p style="font-size:0.78rem;color:var(--text-muted);margin-top:8px;">
+    <em>Rotate injection sites daily. Abdomen (2 inches from navel), outer thighs, and back of upper arms are all suitable.</em>
+  </p>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SUPPLY LIST                              -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section-header">
+  <h2>Supplies Checklist</h2>
+  <div class="rule"></div>
+</div>
+
+<div class="card">
+  <ul class="checklist">
+    <li><strong>U-100 insulin syringes</strong> — 31G, 5/16" or 8mm needle, 1 mL capacity. Estimate ~35 syringes/week (5–6 per day × 7 days minus off-days). Buy in boxes of 100.</li>
+    <li><strong>Bacteriostatic water</strong> — 30 mL multi-dose vials. Estimate 3–4 bottles for initial reconstitution of all 7 peptides (18 mL total). Keep a spare.</li>
+    <li><strong>Alcohol swabs</strong> — 2 per injection (vial stopper wipe + skin prep). ~12–14 per day. Buy bulk boxes of 200+.</li>
+    <li><strong>Sharps container</strong> — FDA-approved, puncture-resistant. Available at any pharmacy.</li>
+    <li><strong>Vial storage case</strong> — Insulin vial organizer or small cosmetic fridge organizer to keep reconstituted vials upright and organized in the refrigerator.</li>
+    <li><strong>Extra mixing syringes</strong> — 3 mL syringes with 21G–23G needles for BAC water transfer. Do not use insulin syringes for reconstitution — the fine needle damages the peptide.</li>
+    <li><strong>Labels / Sharpie</strong> — Label every vial with reconstitution date and concentration immediately.</li>
+    <li><strong>Refrigerator thermometer</strong> — Verify fridge stays at 2–8°C (35–46°F). Peptides degrade rapidly above 8°C.</li>
+    <li><strong>Injection log / notebook</strong> — Track daily doses, injection sites, and any reactions or effects.</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- INJECTION TECHNIQUE                      -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section-header">
+  <h2>Injection Technique</h2>
+  <div class="rule"></div>
+</div>
+
+<div class="card">
+  <ol style="padding-left:24px;color:var(--text-muted);line-height:2.4;">
+    <li><strong>Wash hands</strong> thoroughly with soap and warm water.</li>
+    <li><strong>Wipe vial stopper</strong> with an alcohol swab. Let dry completely (10–15 seconds).</li>
+    <li><strong>Draw air</strong> into the syringe equal to your dose volume. Inject air into the vial to equalize pressure.</li>
+    <li><strong>Draw the dose</strong> slowly. Flick the syringe to dislodge bubbles, then push plunger gently to expel air. Confirm exact dose.</li>
+    <li><strong>Wipe injection site</strong> with a fresh alcohol swab. Let dry.</li>
+    <li><strong>Pinch a fold of skin</strong> (about 1–2 inches). Insert the needle at a 45° angle for lean areas or 90° if there's adequate subcutaneous fat.</li>
+    <li><strong>Inject slowly</strong> — 5–10 seconds for small volumes, 10–20 seconds for GHK-Cu or the Epitalon 100-unit dose.</li>
+    <li><strong>Withdraw the needle</strong> and apply gentle pressure with a clean cotton ball or tissue. Do not massage the site.</li>
+    <li><strong>Dispose</strong> of the syringe immediately in a sharps container. Never recap.</li>
+  </ol>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- FREQUENTLY ASKED QUESTIONS               -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section-header">
+  <h2>Common Questions</h2>
+  <div class="rule"></div>
+</div>
+
+<div class="card">
+  <p><strong style="color:var(--gold-light);">Q: Can I combine more peptides in the same syringe?</strong></p>
+  <p style="color:var(--text-muted);margin-bottom:20px;">A: <strong>KPV + BPC-157:</strong> Yes, proven compatible. <strong>CMax + anything else:</strong> No — keep CMax separate (requires fasted state, different pH). <strong>GHK-Cu + anything else:</strong> No — copper ion can precipitate other peptides. <strong>Tesamorelin + DSIP:</strong> Yes — compatible, though most prefer DSIP as the very last injection. <strong>Epitalon:</strong> Keep separate due to large volume.</p>
+
+  <p><strong style="color:var(--gold-light);">Q: What if I miss a dose?</strong></p>
+  <p style="color:var(--text-muted);margin-bottom:20px;">A: For morning peptides — if it's past 11 AM, skip and resume the next day. Never double-dose. For evening peptides — if you forget and it's past midnight, skip. For Epitalon during a 20-day course — take the missed dose as soon as you remember unless it's within 8 hours of the next dose.</p>
+
+  <p><strong style="color:var(--gold-light);">Q: How long until I see results?</strong></p>
+  <p style="color:var(--text-muted);margin-bottom:20px;">A: <strong>Sleep:</strong> DSIP works on night one. Epitalon melatonin effects build over 1–2 weeks. <strong>Gut:</strong> BPC-157 + KPV — noticeable improvement in 7–14 days. <strong>Hair:</strong> GHK-Cu — visible changes at 4–8 weeks (hair growth cycles are slow). Tesamorelin/CMax hair benefits at 8–12 weeks.</p>
+
+  <p><strong style="color:var(--gold-light);">Q: Can I use these peptides orally instead of injecting?</strong></p>
+  <p style="color:var(--text-muted);margin-bottom:20px;">A: BPC-157 has an oral-stable form (arginine salt) that works for gut healing specifically. KPV can be orally active. Everything else — CMax, Tesamorelin, GHK-Cu, DSIP, Epitalon — must be injected subcutaneously. Oral bioavailability for these is near zero.</p>
+
+  <p><strong style="color:var(--gold-light);">Q: Do I need lab work?</strong></p>
+  <p style="color:var(--text-muted);margin-bottom:20px;">A: Ideally, yes — especially for the GH axis peptides (CMax, Tesamorelin). Recommended labs: IGF-1, fasting glucose, HbA1c, liver panel (ALT/AST), and a CBC. Check at baseline and every 3 months. Tesamorelin can raise IGF-1 and slightly affect glucose tolerance — worth monitoring.</p>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- DISCLAIMER                               -->
+<!-- ═══════════════════════════════════════ -->
+<div class="disclaimer">
+  <h4>⚕ Medical Disclaimer</h4>
+  <p>
+    This protocol is for <strong>educational and informational purposes only</strong>. It does not constitute medical advice, diagnosis, or treatment.
+    Peptides are research chemicals that have not been evaluated by the FDA for safety or efficacy in the uses described here.
+    Always consult with a qualified healthcare provider before beginning any peptide protocol — especially if you are pregnant, nursing,
+    taking prescription medications, or have pre-existing medical conditions. Individual responses vary. Start low, go slow, and listen to your body.
+  </p>
+</div>
+
+<div class="footer">
+  <p>The Sweet Lady Protocol &nbsp;·&nbsp; v1.0 &nbsp;·&nbsp; Built with love &nbsp;·&nbsp; <span style="color:var(--gold-light);">✦</span></p>
+</div>
+
+</div><!-- /container -->
+
+</body>
+</html>
