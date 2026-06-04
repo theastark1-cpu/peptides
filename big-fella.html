@@ -355,6 +355,10 @@
   }
 
   /* ── Password Gate ───────────────────── */
+  /* Unlocked state — show content immediately */
+  html.unlocked #main-content { display: block !important; }
+  html.unlocked #pw-overlay { display: none !important; }
+
   #pw-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: var(--bg);
@@ -514,7 +518,7 @@
       <td style="color:var(--blue);font-weight:700;">1</td>
       <td style="font-weight:500;">Semax</td>
       <td>Cognitive Shield</td>
-      <td>Intranasal</td>
+      <td>SubQ</td>
       <td style="color:var(--text-muted);font-size:0.88rem;">BDNF boost, crosses BBB, neuroprotective — direct counter to dementia family history</td>
     </tr>
     <tr>
@@ -560,7 +564,7 @@
 <!-- 1. Semax -->
 <div class="peptide-profile">
   <h3>① Semax — Cognitive Shield</h3>
-  <div class="role-label">ACTH(4-7) Analog · Intranasal · AM + Midday</div>
+  <div class="role-label">ACTH(4-7) Analog · SubQ · AM</div>
 
   <div class="metric-row">
     <div class="metric">
@@ -568,7 +572,15 @@
       <div class="label">Daily Dose</div>
     </div>
     <div class="metric">
-      <div class="value">Intranasal</div>
+      <div class="value">3.0 mL</div>
+      <div class="label">Bac Water (10mg vial)</div>
+    </div>
+    <div class="metric">
+      <div class="value">12–18 units</div>
+      <div class="label">Syringe Draw</div>
+    </div>
+    <div class="metric">
+      <div class="value">SubQ</div>
       <div class="label">Route</div>
     </div>
     <div class="metric">
@@ -576,15 +588,20 @@
       <div class="label">Cycle</div>
     </div>
     <div class="metric">
-      <div class="value">AM + Early PM</div>
+      <div class="value">AM</div>
       <div class="label">Timing</div>
     </div>
   </div>
 
-  <p style="color:var(--text-muted);margin:12px 0;">Pre-mixed nasal spray or reconstitute peptide with sterile saline. 1% solution (10 mg/mL) = approximately <strong style="color:var(--blue-light);">50 mcg per spray</strong>. 8–12 sprays split between morning and early afternoon. Not after 4pm — can be stimulating.</p>
+  <p style="color:var(--text-muted);margin:12px 0;">
+    <strong style="color:var(--blue-light);">Reconstitution:</strong> Add 3.0 mL bacteriostatic water → concentration <strong style="color:var(--blue-light);">3.33 mg/mL</strong>.<br>
+    <strong style="color:var(--blue-light);">Syringe Math:</strong> 3.33 mg/mL ÷ 100 = 33.3 mcg/unit → 400–600 mcg = <strong style="color:var(--blue-light);">12–18 units</strong>.<br>
+    <strong style="color:var(--blue-light);">Doses per 10mg vial:</strong> ~16–25 (depending on dose).<br>
+    <strong style="color:var(--blue-light);">Timing:</strong> Morning only. Not after 4pm — can be stimulating.
+  </p>
 
   <div class="warning-box">
-    <strong>🧠 Dementia Prevention Evidence:</strong> A 2025 study demonstrated that intranasal Semax improves cognitive function in Alzheimer's disease mouse models. Semax upregulates BDNF, provides copper-induced neuroprotection, and enhances synaptic plasticity. For heavy artillery, consider Cerebrolysin cycles 2×/year (see "Phase 2" section below).
+    <strong>🧠 Dementia Prevention Evidence:</strong> A 2025 study demonstrated that subQ Semax improves cognitive function in Alzheimer's disease mouse models. Semax upregulates BDNF, provides copper-induced neuroprotection, and enhances synaptic plasticity. For heavy artillery, consider Cerebrolysin cycles 2×/year (see "Phase 2" section below).
   </div>
 </div>
 
@@ -770,8 +787,8 @@
     <div class="time-label">☀️ Morning (7–8 AM)</div>
     <div class="schedule-item">
       <span class="pep-name">Semax</span>
-      <span class="dose">200–300 mcg</span>
-      <span class="note">4–6 sprays intranasal</span>
+      <span class="dose">400–600 mcg</span>
+      <span class="note">12–18 units subQ</span>
     </div>
     <div class="schedule-item">
       <span class="pep-name">BPC-157</span>
@@ -791,14 +808,7 @@
   </div>
 
   <div>
-    <div class="schedule-block">
-      <div class="time-label">🌤️ Midday (12–2 PM)</div>
-      <div class="schedule-item">
-        <span class="pep-name">Semax</span>
-        <span class="dose">200–300 mcg</span>
-        <span class="note">4–6 sprays intranasal</span>
-      </div>
-    </div>
+    
 
     <div class="schedule-block">
       <div class="time-label">🌙 Bedtime (10–11 PM)</div>
@@ -837,7 +847,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>Semax</td>
+      <td>Semax (SubQ)</td>
       <td class="cal-on">✅</td><td class="cal-on">✅</td><td class="cal-on">✅</td><td class="cal-on">✅</td><td class="cal-on">✅</td><td class="cal-on">✅</td><td class="cal-on">✅</td>
     </tr>
     <tr>
@@ -882,43 +892,43 @@
   <tbody>
     <tr>
       <td>Monday</td>
-      <td><strong style="color:var(--blue-light);">3</strong> (BPC + TB + MOTS-c)</td>
+      <td><strong style="color:var(--blue-light);">4</strong> (Semax + BPC + TB + MOTS-c)</td>
       <td>2 (BPC + Tesa)</td>
       <td style="color:var(--text-muted);">Heavy day — rotate sites wide</td>
     </tr>
     <tr>
       <td>Tuesday</td>
-      <td>1 (BPC)</td>
+      <td>2 (Semax + BPC)</td>
       <td>2 (BPC + Tesa)</td>
       <td style="color:var(--text-muted);">Light day</td>
     </tr>
     <tr>
       <td>Wednesday</td>
-      <td>2 (BPC + MOTS-c)</td>
+      <td>3 (Semax + BPC + MOTS-c)</td>
       <td>2 (BPC + Tesa)</td>
       <td style="color:var(--text-muted);">Medium day</td>
     </tr>
     <tr>
       <td>Thursday</td>
-      <td>2 (BPC + TB-500)</td>
+      <td>3 (Semax + BPC + TB-500)</td>
       <td>2 (BPC + Tesa)</td>
       <td style="color:var(--text-muted);">Medium day</td>
     </tr>
     <tr>
       <td>Friday</td>
-      <td>2 (BPC + MOTS-c)</td>
+      <td>3 (Semax + BPC + MOTS-c)</td>
       <td>2 (BPC + Tesa)</td>
       <td style="color:var(--text-muted);">Medium day</td>
     </tr>
     <tr>
       <td>Saturday</td>
-      <td>1 (BPC)</td>
+      <td>2 (Semax + BPC)</td>
       <td>1 (BPC only)</td>
       <td style="color:var(--text-muted);">Recovery — no Tesa</td>
     </tr>
     <tr>
       <td>Sunday</td>
-      <td>1 (BPC)</td>
+      <td>2 (Semax + BPC)</td>
       <td>1 (BPC only)</td>
       <td style="color:var(--text-muted);">Recovery — no Tesa</td>
     </tr>
@@ -1110,23 +1120,41 @@
 <script>
 (function() {
   var PW = 'trailboss';
-  var unlocked = sessionStorage.getItem('bfp_unlocked') === PW;
-  if (!unlocked) {
-    document.write('<style>#main-content{display:none}</style>');
+  var STORAGE_KEY = 'bfp_unlocked';
+  
+  // Hide overlay immediately if already unlocked this session
+  if (sessionStorage.getItem(STORAGE_KEY) === PW) {
+    document.documentElement.classList.add('unlocked');
   }
+  
   document.addEventListener('DOMContentLoaded', function() {
-    if (unlocked) return;
+    // Already unlocked — nothing to do
+    if (sessionStorage.getItem(STORAGE_KEY) === PW) return;
+    
     var content = document.getElementById('main-content');
     var overlay = document.getElementById('pw-overlay');
     var input = document.getElementById('pw-input');
     var error = document.getElementById('pw-error');
+    var body = document.body;
+    
+    // Lock the page
     overlay.classList.remove('hidden');
+    body.style.overflow = 'hidden';
+    
     input.focus();
     function tryUnlock() {
       if (input.value.trim().toLowerCase() === PW) {
-        sessionStorage.setItem('bfp_unlocked', PW);
+        sessionStorage.setItem(STORAGE_KEY, PW);
         overlay.classList.add('hidden');
+        body.style.overflow = '';
+        // Force reflow to fix scroll issue
+        content.style.display = 'block';
+        void content.offsetHeight; // trigger reflow
         content.style.display = '';
+        // Small delay then scroll reset to ensure layout settles
+        setTimeout(function() {
+          window.scrollTo(0, 0);
+        }, 50);
       } else {
         error.classList.add('show');
         input.value = '';
