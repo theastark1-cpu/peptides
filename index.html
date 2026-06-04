@@ -12,17 +12,17 @@
     --border: #2a2a3a;
     --text: #e4e4ec;
     --text-muted: #9898b0;
-    --gold: #d4a574;
-    --gold-light: #f0d4b8;
-    --rose: #c77d8d;
-    --rose-light: #e8b4bf;
+    --green-accent: #7dba8e;       /* sage green */
+    --green-light: #b8e6c8;        /* mint */
+    --green-mid: #5a9e6f;          /* forest */
+    --green-pale: #a8d5b5;         /* pale green */
     --green: #6ba88a;
     --green-light: #8fccae;
-    --blue: #7b9ec7;
-    --blue-light: #a8c8e8;
-    --accent: #d4a574;
-    --warning: #d4a574;
-    --danger: #c77d8d;
+    --green-teal: #6baf92;          /* teal green */
+    --green-mint: #9ed5b8;          /* mint */
+    --accent: #7dba8e;              /* sage */
+    --warning: #7dba8e;             /* sage */
+    --danger: #cc6666;              /* keep red for warnings/disclaimers */
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,7 +37,7 @@
 
   /* ── Hero ───────────────────────────── */
   .hero {
-    background: linear-gradient(135deg, #1a1025 0%, #0d0d11 40%, #1a1025 70%, #0d0d11 100%);
+    background: linear-gradient(135deg, #0f1a13 0%, #0d0d11 40%, #0f1a13 70%, #0d0d11 100%);
     border-bottom: 1px solid var(--border);
     padding: 100px 24px 80px;
     text-align: center;
@@ -51,15 +51,15 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(ellipse at 30% 50%, rgba(212,165,116,0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 30%, rgba(199,125,141,0.04) 0%, transparent 50%);
+    background: radial-gradient(ellipse at 30% 50%, rgba(125,186,142,0.07) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(90,158,111,0.05) 0%, transparent 50%);
     pointer-events: none;
   }
   .hero h1 {
     font-size: clamp(2.2rem, 5vw, 3.6rem);
     font-weight: 400;
     letter-spacing: 0.03em;
-    background: linear-gradient(135deg, var(--gold-light), var(--rose-light), var(--gold-light));
+    background: linear-gradient(135deg, var(--green-light), var(--green-pale), var(--green-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -90,7 +90,7 @@
     color: var(--text-muted);
     letter-spacing: 0.04em;
   }
-  .hero .tag strong { color: var(--gold); font-weight: 400; }
+  .hero .tag strong { color: var(--green-accent); font-weight: 400; }
 
   /* ── Container ───────────────────────── */
   .container {
@@ -108,12 +108,12 @@
     font-size: 1.8rem;
     font-weight: 400;
     letter-spacing: 0.04em;
-    color: var(--gold-light);
+    color: var(--green-light);
   }
   .section-header .rule {
     width: 60px;
     height: 2px;
-    background: linear-gradient(90deg, var(--gold), var(--rose));
+    background: linear-gradient(90deg, var(--green-accent), var(--green-mid));
     margin: 16px auto 0;
     border-radius: 1px;
   }
@@ -149,7 +149,7 @@
   }
   th {
     font-weight: 400;
-    color: var(--gold-light);
+    color: var(--green-light);
     letter-spacing: 0.04em;
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -167,13 +167,13 @@
     font-size: 0.75rem;
     font-weight: 700;
   }
-  .rank-1 { background: linear-gradient(135deg, #d4a574, #f0d4b8); color: #0d0d11; }
-  .rank-2 { background: linear-gradient(135deg, #b8b8c8, #d8d8e8); color: #0d0d11; }
-  .rank-3 { background: linear-gradient(135deg, #c77d8d, #e8b4bf); color: #0d0d11; }
+  .rank-1 { background: linear-gradient(135deg, #7dba8e, #b8e6c8); color: #0d0d11; }
+  .rank-2 { background: linear-gradient(135deg, #8fbf9f, #c8e8d0); color: #0d0d11; }
+  .rank-3 { background: linear-gradient(135deg, #5a9e6f, #a8d5b5); color: #0d0d11; }
 
   /* ── Peptide Profile ─────────────────── */
   .peptide-profile {
-    border-left: 3px solid var(--gold);
+    border-left: 3px solid var(--green-accent);
     padding-left: 20px;
     margin-bottom: 48px;
     padding-top: 8px;
@@ -182,7 +182,7 @@
   .peptide-profile h3 {
     font-size: 1.4rem;
     font-weight: 400;
-    color: var(--gold-light);
+    color: var(--green-light);
     letter-spacing: 0.03em;
     margin-bottom: 6px;
   }
@@ -200,15 +200,15 @@
     margin: 16px 0;
   }
   .peptide-profile .metric {
-    background: rgba(212,165,116,0.06);
-    border: 1px solid rgba(212,165,116,0.12);
+    background: rgba(125,186,142,0.06);
+    border: 1px solid rgba(125,186,142,0.12);
     border-radius: 8px;
     padding: 14px 16px;
     text-align: center;
   }
   .metric .value {
     font-size: 1.3rem;
-    color: var(--gold-light);
+    color: var(--green-light);
     font-weight: 500;
   }
   .metric .label {
@@ -231,7 +231,7 @@
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--gold);
+    color: var(--green-accent);
     margin-bottom: 12px;
     font-weight: 500;
   }
@@ -248,7 +248,7 @@
     font-weight: 500;
   }
   .schedule-item .dose {
-    color: var(--gold-light);
+    color: var(--green-light);
     font-size: 0.9rem;
   }
   .schedule-item .note {
@@ -274,9 +274,9 @@
     min-width: 36px;
     text-align: right;
   }
-  .fill-sleep { background: var(--blue); }
-  .fill-gut { background: var(--green); }
-  .fill-hair { background: var(--rose); }
+  .fill-sleep { background: var(--green-teal); }
+  .fill-gut { background: var(--green-mid); }
+  .fill-hair { background: #7dba8e; }
 
   /* ── Warnings ────────────────────────── */
   .warning-box {
@@ -286,18 +286,18 @@
     padding: 20px 24px;
     margin: 16px 0;
     font-size: 0.9rem;
-    color: var(--gold-light);
+    color: var(--green-light);
   }
   .warning-box strong { color: var(--warning); }
 
   .danger-box {
-    background: rgba(199,125,141,0.07);
-    border: 1px solid rgba(199,125,141,0.2);
+    background: rgba(204,102,102,0.07);
+    border: 1px solid rgba(204,102,102,0.2);
     border-radius: 10px;
     padding: 20px 24px;
     margin: 16px 0;
     font-size: 0.9rem;
-    color: var(--rose-light);
+    color: #e8a0a0;
   }
 
   /* ── Checklist ───────────────────────── */
@@ -312,7 +312,7 @@
     content: '◇';
     position: absolute;
     left: 0;
-    color: var(--gold);
+    color: var(--green-accent);
     font-size: 0.7rem;
     top: 10px;
   }
@@ -320,7 +320,7 @@
   /* ── Disclaimer ──────────────────────── */
   .disclaimer {
     background: var(--card);
-    border: 1px solid var(--danger);
+    border: 1px solid rgba(204,102,102,0.3);
     border-radius: 12px;
     padding: 32px;
     margin-top: 60px;
@@ -329,7 +329,7 @@
     font-size: 0.85rem;
   }
   .disclaimer h4 {
-    color: var(--rose-light);
+    color: #e8a0a0;
     letter-spacing: 0.06em;
     font-weight: 400;
     margin-bottom: 12px;
@@ -354,6 +354,20 @@
     .schedule-item { flex-direction: column; align-items: flex-start; gap: 4px; }
     .schedule-item .pep-name { min-width: auto; }
   }
+
+
+  /* ── Compact Ranking Table ─────────── */
+  .ranking-table { min-width: 860px; font-size: 0.82rem; }
+  .ranking-table th { padding: 8px 6px; font-size: 0.68rem; letter-spacing: 0.02em; white-space: nowrap; }
+  .ranking-table td { padding: 8px 6px; vertical-align: middle; }
+  .ranking-table td:first-child { min-width: 28px; text-align: center; }
+  .ranking-table td:nth-child(3) { font-size: 0.75rem; white-space: nowrap; }
+  .ranking-table .score-col { width: 62px; min-width: 62px; }
+  .ranking-table .score-bar { gap: 2px; }
+  .ranking-table .score-bar .fill { height: 4px; border-radius: 2px; }
+  .ranking-table .score-bar .pct { font-size: 0.7rem; min-width: 24px; }
+  .ranking-table td:has(.score-bar) { width: 56px; min-width: 56px; padding: 6px 2px; }
+  .ranking-table td:last-child { text-align: center; min-width: 48px; }
 
   /* ── Print ───────────────────────────── */
   @media print {
@@ -429,8 +443,8 @@
   Each peptide is scored individually for Sleep, Gut, Hair, Cognitive, and Toning.
 </p>
 
-<div class="card">
-  <table>
+<div class="card" style="overflow-x:auto;">
+  <table class="ranking-table">
     <thead>
       <tr>
         <th>Rank</th>
@@ -447,9 +461,9 @@
     <tbody>
       <tr>
         <td><span class="rank-badge rank-1">1</span></td>
-        <td><strong>Tesamorelin</strong></td>
-        <td>GH-Releasing Hormone Analog</td>
-        <td>
+        <td style="white-space:nowrap;"><strong>Tesamorelin</strong></td>
+        <td style="font-size:0.72rem;white-space:nowrap;">GH-Releasing Hormone Analog</td>
+        <td class="score-col">
           <div class="score-bar"><div class="fill fill-sleep" style="width:75%;"></div><span class="pct">75</span></div>
         </td>
         <td>
@@ -462,15 +476,15 @@
           <div class="score-bar"><div class="fill fill-sleep" style="width:30%;"></div><span class="pct">30</span></div>
         </td>
         <td>
-          <div class="score-bar"><div class="fill fill-hair" style="width:80%;background:var(--rose);"></div><span class="pct">80</span></div>
+          <div class="score-bar"><div class="fill fill-hair" style="width:80%;background:var(--green-mid);"></div><span class="pct">80</span></div>
         </td>
-        <td><strong style="color:var(--gold-light);">63</strong></td>
+        <td><strong style="color:var(--green-light);">63</strong></td>
       </tr>
       <tr>
         <td><span class="rank-badge" style="background:var(--card);color:var(--text-muted);border:1px solid var(--border);">4</span></td>
-        <td><strong>GHK-Cu</strong></td>
-        <td>Copper Peptide / Tissue Remodeling</td>
-        <td>
+        <td style="white-space:nowrap;"><strong>GHK-Cu</strong></td>
+        <td style="font-size:0.72rem;white-space:nowrap;">Copper Peptide / Tissue Remodel</td>
+        <td class="score-col">
           <div class="score-bar"><div class="fill fill-sleep" style="width:50%;"></div><span class="pct">50</span></div>
         </td>
         <td>
@@ -485,13 +499,13 @@
         <td>
           <div class="score-bar"><div class="fill fill-hair" style="width:15%;"></div><span class="pct">15</span></div>
         </td>
-        <td><strong style="color:var(--gold-light);">50</strong></td>
+        <td><strong style="color:var(--green-light);">50</strong></td>
       </tr>
       <tr>
         <td><span class="rank-badge" style="background:var(--card);color:var(--text-muted);border:1px solid var(--border);">5</span></td>
-        <td><strong>DSIP</strong></td>
-        <td>Delta Sleep-Inducing Peptide</td>
-        <td>
+        <td style="white-space:nowrap;"><strong>DSIP</strong></td>
+        <td style="font-size:0.72rem;white-space:nowrap;">Delta Sleep-Inducing Peptide</td>
+        <td class="score-col">
           <div class="score-bar"><div class="fill fill-sleep" style="width:95%;"></div><span class="pct">95</span></div>
         </td>
         <td>
@@ -506,13 +520,13 @@
         <td>
           <div class="score-bar"><div class="fill fill-hair" style="width:20%;"></div><span class="pct">20</span></div>
         </td>
-        <td><strong style="color:var(--gold-light);">38</strong></td>
+        <td><strong style="color:var(--green-light);">38</strong></td>
       </tr>
       <tr>
         <td><span class="rank-badge" style="background:var(--card);color:var(--text-muted);border:1px solid var(--border);">4</span></td>
-        <td><strong>Semax</strong> <span style="font-size:0.75rem;color:var(--text-muted);">(ACTH 4-7 Analog)</span></td>
-        <td>Cognitive &amp; Neuroprotective</td>
-        <td>
+        <td style="white-space:nowrap;"><strong>Semax</strong> <span style="font-size:0.75rem;color:var(--text-muted);">(ACTH 4-7 Analog)</span></td>
+        <td style="font-size:0.72rem;white-space:nowrap;">Cognitive &amp; Neuroprotective</td>
+        <td class="score-col">
           <div class="score-bar"><div class="fill fill-sleep" style="width:35%;"></div><span class="pct">35</span></div>
         </td>
         <td>
@@ -522,18 +536,18 @@
           <div class="score-bar"><div class="fill fill-hair" style="width:10%;"></div><span class="pct">10</span></div>
         </td>
         <td>
-          <div class="score-bar"><div class="fill fill-sleep" style="width:95%;background:var(--gold);"></div><span class="pct">95</span></div>
+          <div class="score-bar"><div class="fill fill-sleep" style="width:95%;background:var(--green-accent);"></div><span class="pct">95</span></div>
         </td>
         <td>
           <div class="score-bar"><div class="fill fill-hair" style="width:10%;"></div><span class="pct">10</span></div>
         </td>
-        <td><strong style="color:var(--gold-light);">34</strong></td>
+        <td><strong style="color:var(--green-light);">34</strong></td>
       </tr>
       <tr>
         <td><span class="rank-badge" style="background:var(--card);color:var(--text-muted);border:1px solid var(--border);">5</span></td>
         <td><strong>KPV</strong></td>
-        <td>Anti-Inflammatory (Gut-Targeted)</td>
-        <td>
+        <td style="font-size:0.72rem;white-space:nowrap;">Anti-Inflammatory (Gut)</td>
+        <td class="score-col">
           <div class="score-bar"><div class="fill fill-sleep" style="width:30%;"></div><span class="pct">30</span></div>
         </td>
         <td>
@@ -548,13 +562,13 @@
         <td>
           <div class="score-bar"><div class="fill fill-hair" style="width:10%;"></div><span class="pct">10</span></div>
         </td>
-        <td><strong style="color:var(--gold-light);">34</strong></td>
+        <td><strong style="color:var(--green-light);">34</strong></td>
       </tr>
       <tr>
         <td><span class="rank-badge" style="background:var(--card);color:var(--text-muted);border:1px solid var(--border);">6</span></td>
         <td><strong>Epitalon</strong></td>
-        <td>Pineal / Telomere Peptide</td>
-        <td>
+        <td style="font-size:0.72rem;white-space:nowrap;">Pineal / Telomere Peptide</td>
+        <td class="score-col">
           <div class="score-bar"><div class="fill fill-sleep" style="width:85%;"></div><span class="pct">85</span></div>
         </td>
         <td>
@@ -569,7 +583,7 @@
         <td>
           <div class="score-bar"><div class="fill fill-hair" style="width:15%;"></div><span class="pct">15</span></div>
         </td>
-        <td><strong style="color:var(--gold-light);">32</strong></td>
+        <td><strong style="color:var(--green-light);">32</strong></td>
       </tr>
     </tbody>
   </table>
@@ -627,7 +641,7 @@
 </div>
 
 <!-- ── Tesamorelin ───────────────────────── -->
-<div class="peptide-profile" style="border-left-color: var(--rose);">
+<div class="peptide-profile" style="border-left-color: var(--green-mid);">
   <h3>② Tesamorelin <span style="font-size:0.75rem;color:var(--text-muted);">(Egrifta / TH9507)</span></h3>
   <p class="rank-label">Rank #2 · GHRH Analog · PM Dosing</p>
 
@@ -700,7 +714,7 @@
 </div>
 
 <!-- ── GHK-Cu ────────────────────────────── -->
-<div class="peptide-profile" style="border-left-color: var(--blue);">
+<div class="peptide-profile" style="border-left-color: var(--green-teal);">
   <h3>④ GHK-Cu <span style="font-size:0.75rem;color:var(--text-muted);">(Copper Tripeptide-1)</span></h3>
   <p class="rank-label">Rank #4 · Copper Peptide · Tissue Remodeling</p>
 
@@ -774,7 +788,7 @@
 </div>
 
 <!-- ── Epitalon ──────────────────────────── -->
-<div class="peptide-profile" style="border-left-color: var(--gold);">
+<div class="peptide-profile" style="border-left-color: var(--green-accent);">
   <h3>⑦ Epitalon <span style="font-size:0.75rem;color:var(--text-muted);">(Ala-Glu-Asp-Gly / Epithalon)</span></h3>
   <p class="rank-label">Rank #7 · Pineal Tetrapeptide · Cycled Protocol</p>
 
@@ -821,8 +835,8 @@
   <div class="rule"></div>
 </div>
 
-<div class="card">
-  <table>
+<div class="card" style="overflow-x:auto;">
+  <table class="ranking-table">
     <thead>
       <tr>
         <th>Peptide</th>
@@ -971,7 +985,7 @@
         <td style="text-align:center;background:rgba(152,152,176,0.08);color:var(--text-muted);">OFF</td>
         <td colspan="2" style="text-align:center;background:rgba(167,200,232,0.10);color:var(--blue-light);">✅ On</td>
       </tr>
-      <tr style="border-bottom: 2px solid var(--gold);">
+      <tr style="border-bottom: 2px solid var(--green-accent);">
         <td><strong>Epitalon</strong></td>
         <td colspan="3" style="text-align:center;background:rgba(212,165,116,0.10);color:var(--gold-light);">✅ Course 1: 20 days</td>
         <td colspan="8" style="text-align:center;background:rgba(152,152,176,0.06);color:var(--text-muted);">OFF — 5–6 month break (Course 2 at 6-month mark)</td>
@@ -981,7 +995,7 @@
 </div>
 
 <div class="card">
-  <h3 style="font-weight:400;color:var(--gold-light);margin-bottom:16px;">Cycle Logic — Why Each Pattern</h3>
+  <h3 style="font-weight:400;color:var(--green-light);margin-bottom:16px;">Cycle Logic — Why Each Pattern</h3>
   <table>
     <thead><tr><th>Peptide</th><th>Cycle Pattern</th><th>Rationale</th></tr></thead>
     <tbody>
@@ -1062,19 +1076,19 @@
 </div>
 
 <div class="card">
-  <p><strong style="color:var(--gold-light);">Q: Can I combine more peptides in the same syringe?</strong></p>
+  <p><strong style="color:var(--green-light);">Q: Can I combine more peptides in the same syringe?</strong></p>
   <p style="color:var(--text-muted);margin-bottom:20px;">A: <strong>Semax + GHK-Cu:</strong> Yes — compatible pH, both AM peptides. Can be drawn in the same syringe. <strong>GHK-Cu + anything else:</strong> Generally avoid — copper ion can precipitate other peptides. <strong>Tesamorelin + DSIP:</strong> Yes — compatible, though most prefer DSIP as the very last injection. <strong>Epitalon:</strong> Keep separate due to large volume.</p>
 
-  <p><strong style="color:var(--gold-light);">Q: What if I miss a dose?</strong></p>
+  <p><strong style="color:var(--green-light);">Q: What if I miss a dose?</strong></p>
   <p style="color:var(--text-muted);margin-bottom:20px;">A: For morning peptides — if it's past 11 AM, skip and resume the next day. Never double-dose. For evening peptides — if you forget and it's past midnight, skip. For Epitalon during a 20-day course — take the missed dose as soon as you remember unless it's within 8 hours of the next dose.</p>
 
-  <p><strong style="color:var(--gold-light);">Q: How long until I see results?</strong></p>
+  <p><strong style="color:var(--green-light);">Q: How long until I see results?</strong></p>
   <p style="color:var(--text-muted);margin-bottom:20px;">A: <strong>Sleep:</strong> DSIP works on night one. Epitalon melatonin effects build over 1–2 weeks. <strong>Gut:</strong> KPV — noticeable anti-inflammatory effect in 7–14 days. <strong>Hair:</strong> GHK-Cu — visible changes at 4–8 weeks (hair growth cycles are slow). Tesamorelin GH-driven hair benefits at 8–12 weeks.</p>
 
-  <p><strong style="color:var(--gold-light);">Q: Can I use these peptides orally instead of injecting?</strong></p>
+  <p><strong style="color:var(--green-light);">Q: Can I use these peptides orally instead of injecting?</strong></p>
   <p style="color:var(--text-muted);margin-bottom:20px;">A: KPV can be orally active. Everything else — Semax, Tesamorelin, GHK-Cu, DSIP, Epitalon — must be injected subcutaneously. Oral bioavailability for these is near zero. (Semax has an intranasal formulation, but subQ is the standard for this protocol.)</p>
 
-  <p><strong style="color:var(--gold-light);">Q: Do I need lab work?</strong></p>
+  <p><strong style="color:var(--green-light);">Q: Do I need lab work?</strong></p>
   <p style="color:var(--text-muted);margin-bottom:20px;">A: Ideally, yes — especially for the GH axis peptide (Tesamorelin). Recommended labs: IGF-1, fasting glucose, HbA1c, liver panel (ALT/AST), and a CBC. Check at baseline and every 3 months. Tesamorelin can raise IGF-1 and slightly affect glucose tolerance — worth monitoring. Semax is non-hormonal and does not require specific lab monitoring.</p>
 </div>
 
@@ -1092,7 +1106,7 @@
 </div>
 
 <div class="footer">
-  <p>The Sweet Lady Protocol &nbsp;·&nbsp; v1.0 &nbsp;·&nbsp; Built with love &nbsp;·&nbsp; <span style="color:var(--gold-light);">✦</span></p>
+  <p>The Sweet Lady Protocol &nbsp;·&nbsp; v1.0 &nbsp;·&nbsp; Built with love &nbsp;·&nbsp; <span style="color:var(--green-light);">✦</span></p>
 </div>
 
 </div><!-- /container -->
