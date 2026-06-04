@@ -1196,7 +1196,7 @@
       if (input.value.trim().toLowerCase() === PW) {
         sessionStorage.setItem('slp_unlocked', PW);
         overlay.classList.add('hidden');
-        content.style.display = '';
+        content.style.display = 'block';
       } else {
         error.classList.add('show');
         input.value = '';
