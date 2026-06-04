@@ -12,16 +12,16 @@
     --border: #2a2a3a;
     --text: #e4e4ec;
     --text-muted: #9898b0;
-    --amber: #d4a553;
-    --amber-light: #e8c97a;
-    --amber-mid: #b8892e;
-    --amber-pale: #c9a35e;
+    --blue: #5b8cb8;
+    --blue-light: #8ab8e0;
+    --blue-mid: #3d7ab5;
+    --blue-pale: #7baad4;
     --steel: #8fa4b8;
     --steel-light: #b0c4d8;
     --steel-dark: #6b85a0;
     --danger: #cc6666;
-    --accent: #d4a553;
-    --warning: #d4a553;
+    --accent: #5b8cb8;
+    --warning: #5b8cb8;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -57,11 +57,11 @@
     transition: color 0.2s;
   }
   .top-nav a:hover,
-  .top-nav a.active { color: var(--amber); }
+  .top-nav a.active { color: var(--blue); }
 
   /* ── Hero ───────────────────────────── */
   .hero {
-    background: linear-gradient(135deg, #1a140d 0%, #0d0d11 40%, #15100a 70%, #0d0d11 100%);
+    background: linear-gradient(135deg, #0a121d 0%, #0d0d11 40%, #0a101a 70%, #0d0d11 100%);
     border-bottom: 1px solid var(--border);
     padding: 100px 24px 80px;
     text-align: center;
@@ -75,15 +75,15 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(ellipse at 30% 50%, rgba(212,165,83,0.07) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 30%, rgba(184,137,46,0.05) 0%, transparent 50%);
+    background: radial-gradient(ellipse at 30% 50%, rgba(91,140,184,0.07) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(61,122,181,0.05) 0%, transparent 50%);
     pointer-events: none;
   }
   .hero h1 {
     font-size: clamp(2.2rem, 5vw, 3.6rem);
     font-weight: 400;
     letter-spacing: 0.03em;
-    background: linear-gradient(135deg, var(--amber-light), var(--amber-pale), var(--amber-light));
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-pale), var(--blue-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -114,7 +114,7 @@
     color: var(--text-muted);
     letter-spacing: 0.04em;
   }
-  .hero .tag strong { color: var(--amber); font-weight: 400; }
+  .hero .tag strong { color: var(--blue); font-weight: 400; }
 
   /* ── Container ───────────────────────── */
   .container {
@@ -132,12 +132,12 @@
     font-size: 1.8rem;
     font-weight: 400;
     letter-spacing: 0.04em;
-    color: var(--amber-light);
+    color: var(--blue-light);
   }
   .section-header .rule {
     width: 60px;
     height: 2px;
-    background: linear-gradient(90deg, var(--amber), var(--amber-mid));
+    background: linear-gradient(90deg, var(--blue), var(--blue-mid));
     margin: 16px auto 0;
     border-radius: 1px;
   }
@@ -173,7 +173,7 @@
   }
   th {
     font-weight: 400;
-    color: var(--amber-light);
+    color: var(--blue-light);
     letter-spacing: 0.04em;
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -183,7 +183,7 @@
 
   /* ── Peptide Profile ─────────────────── */
   .peptide-profile {
-    border-left: 3px solid var(--amber);
+    border-left: 3px solid var(--blue);
     padding-left: 16px;
     margin-bottom: 36px;
     padding-top: 4px;
@@ -192,7 +192,7 @@
   .peptide-profile h3 {
     font-size: 1.4rem;
     font-weight: 400;
-    color: var(--amber-light);
+    color: var(--blue-light);
     letter-spacing: 0.03em;
     margin-bottom: 6px;
   }
@@ -210,15 +210,15 @@
     margin: 16px 0;
   }
   .peptide-profile .metric {
-    background: rgba(212,165,83,0.06);
-    border: 1px solid rgba(212,165,83,0.12);
+    background: rgba(91,140,184,0.06);
+    border: 1px solid rgba(91,140,184,0.12);
     border-radius: 8px;
     padding: 14px 16px;
     text-align: center;
   }
   .metric .value {
     font-size: 1.3rem;
-    color: var(--amber-light);
+    color: var(--blue-light);
     font-weight: 500;
   }
   .metric .label {
@@ -246,7 +246,7 @@
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--amber);
+    color: var(--blue);
     margin-bottom: 12px;
     font-weight: 500;
   }
@@ -263,7 +263,7 @@
     font-weight: 500;
   }
   .schedule-item .dose {
-    color: var(--amber-light);
+    color: var(--blue-light);
     font-size: 0.9rem;
   }
   .schedule-item .note {
@@ -283,20 +283,20 @@
     text-align: left;
     font-size: 0.82rem;
     font-weight: 500;
-    color: var(--amber-light);
+    color: var(--blue-light);
   }
 
   /* ── Warnings ────────────────────────── */
   .warning-box {
-    background: rgba(212,165,83,0.07);
-    border: 1px solid rgba(212,165,83,0.2);
+    background: rgba(91,140,184,0.07);
+    border: 1px solid rgba(91,140,184,0.2);
     border-radius: 10px;
     padding: 20px 24px;
     margin: 16px 0;
     font-size: 0.9rem;
-    color: var(--amber-light);
+    color: var(--blue-light);
   }
-  .warning-box strong { color: var(--amber); }
+  .warning-box strong { color: var(--blue); }
 
   .danger-box {
     background: rgba(204,102,102,0.07);
@@ -321,7 +321,7 @@
     content: '◇';
     position: absolute;
     left: 0;
-    color: var(--amber);
+    color: var(--blue);
     font-size: 0.7rem;
     top: 10px;
   }
@@ -373,7 +373,7 @@
     width: 90%;
   }
   #pw-box h2 {
-    font-size: 1.6rem; font-weight: 400; color: var(--amber-light);
+    font-size: 1.6rem; font-weight: 400; color: var(--blue-light);
     margin-bottom: 8px; letter-spacing: 0.04em;
   }
   #pw-box .pw-sub {
@@ -387,7 +387,7 @@
     letter-spacing: 0.1em;
     transition: border-color 0.2s;
   }
-  #pw-box input:focus { border-color: var(--amber); }
+  #pw-box input:focus { border-color: var(--blue); }
   #pw-box .pw-error {
     color: var(--danger); font-size: 0.8rem; margin-top: 12px;
     display: none;
@@ -395,7 +395,7 @@
   #pw-box .pw-error.show { display: block; }
 
   /* ── Highlight row in calendar ───────── */
-  .cal-on { color: var(--amber-light); font-weight: 600; }
+  .cal-on { color: var(--blue-light); font-weight: 600; }
   .cal-off { color: var(--text-muted); opacity: 0.35; }
 
   /* ── Responsive ──────────────────────── */
@@ -436,7 +436,7 @@
     <p class="pw-sub">Enter password to continue</p>
     <input type="password" id="pw-input" placeholder="••••••••••" autocomplete="off">
     <div style="margin-top:16px;">
-      <button id="pw-btn" style="background:var(--amber);color:var(--bg);border:none;padding:10px 32px;border-radius:8px;font-size:0.9rem;cursor:pointer;font-family:inherit;letter-spacing:0.04em;">Unlock</button>
+      <button id="pw-btn" style="background:var(--blue);color:var(--bg);border:none;padding:10px 32px;border-radius:8px;font-size:0.9rem;cursor:pointer;font-family:inherit;letter-spacing:0.04em;">Unlock</button>
     </div>
     <p id="pw-error" class="pw-error">Incorrect password — try again</p>
   </div>
@@ -469,22 +469,22 @@
 <div class="card-grid">
   <div class="card" style="text-align:center;">
     <div style="font-size:2.4rem;margin-bottom:8px;">🧠</div>
-    <h3 style="font-weight:400;color:var(--amber-light);margin-bottom:8px;">Cognitive Shield</h3>
+    <h3 style="font-weight:400;color:var(--blue-light);margin-bottom:8px;">Cognitive Shield</h3>
     <p style="color:var(--text-muted);">BDNF-driven neuroprotection, synaptic plasticity, dementia prevention — backed by Alzheimer's model research</p>
   </div>
   <div class="card" style="text-align:center;">
     <div style="font-size:2.4rem;margin-bottom:8px;">🔧</div>
-    <h3 style="font-weight:400;color:var(--amber-light);margin-bottom:8px;">Repair & Recovery</h3>
+    <h3 style="font-weight:400;color:var(--blue-light);margin-bottom:8px;">Repair & Recovery</h3>
     <p style="color:var(--text-muted);">Dual-pathway tissue repair — localized angiogenesis + systemic actin regulation — for the mountain biker who rides hard</p>
   </div>
   <div class="card" style="text-align:center;">
     <div style="font-size:2.4rem;margin-bottom:8px;">⚡</div>
-    <h3 style="font-weight:400;color:var(--amber-light);margin-bottom:8px;">Metabolic Fire</h3>
+    <h3 style="font-weight:400;color:var(--blue-light);margin-bottom:8px;">Metabolic Fire</h3>
     <p style="color:var(--text-muted);">AMPK activation for fat oxidation + GH-driven visceral fat reduction — targets the 20 lbs from two angles</p>
   </div>
   <div class="card" style="text-align:center;">
     <div style="font-size:2.4rem;margin-bottom:8px;">🔋</div>
-    <h3 style="font-weight:400;color:var(--amber-light);margin-bottom:8px;">Mitochondrial Energy</h3>
+    <h3 style="font-weight:400;color:var(--blue-light);margin-bottom:8px;">Mitochondrial Energy</h3>
     <p style="color:var(--text-muted);">Exercise-mimetic signaling restores age-declined mitochondrial function — endurance for the long climb</p>
   </div>
 </div>
@@ -511,35 +511,35 @@
   </thead>
   <tbody>
     <tr>
-      <td style="color:var(--amber);font-weight:700;">1</td>
+      <td style="color:var(--blue);font-weight:700;">1</td>
       <td style="font-weight:500;">Semax</td>
       <td>Cognitive Shield</td>
       <td>Intranasal</td>
       <td style="color:var(--text-muted);font-size:0.88rem;">BDNF boost, crosses BBB, neuroprotective — direct counter to dementia family history</td>
     </tr>
     <tr>
-      <td style="color:var(--amber);font-weight:700;">2</td>
+      <td style="color:var(--blue);font-weight:700;">2</td>
       <td style="font-weight:500;">BPC-157</td>
       <td>Local Repair</td>
       <td>SubQ (2×/day)</td>
       <td style="color:var(--text-muted);font-size:0.88rem;">Tendons, joints, gut lining, angiogenesis at injury sites — mountain bike crash insurance</td>
     </tr>
     <tr>
-      <td style="color:var(--amber);font-weight:700;">3</td>
+      <td style="color:var(--blue);font-weight:700;">3</td>
       <td style="font-weight:500;">TB-500</td>
       <td>Systemic Recovery</td>
       <td>SubQ (2×/week)</td>
       <td style="color:var(--text-muted);font-size:0.88rem;">Actin regulation, systemic anti-inflammatory, cardioprotective — the long-half-life partner to BPC</td>
     </tr>
     <tr>
-      <td style="color:var(--amber);font-weight:700;">4</td>
+      <td style="color:var(--blue);font-weight:700;">4</td>
       <td style="font-weight:500;">Tesamorelin</td>
       <td>Visceral Fat + GH</td>
       <td>SubQ PM</td>
       <td style="color:var(--text-muted);font-size:0.88rem;">FDA-approved for visceral adipose reduction; GH pulse restoration without IGF-1 overshoot</td>
     </tr>
     <tr>
-      <td style="color:var(--amber);font-weight:700;">5</td>
+      <td style="color:var(--blue);font-weight:700;">5</td>
       <td style="font-weight:500;">MOTS-c</td>
       <td>Mitochondrial Energy</td>
       <td>SubQ AM</td>
@@ -581,7 +581,7 @@
     </div>
   </div>
 
-  <p style="color:var(--text-muted);margin:12px 0;">Pre-mixed nasal spray or reconstitute peptide with sterile saline. 1% solution (10 mg/mL) = approximately <strong style="color:var(--amber-light);">50 mcg per spray</strong>. 8–12 sprays split between morning and early afternoon. Not after 4pm — can be stimulating.</p>
+  <p style="color:var(--text-muted);margin:12px 0;">Pre-mixed nasal spray or reconstitute peptide with sterile saline. 1% solution (10 mg/mL) = approximately <strong style="color:var(--blue-light);">50 mcg per spray</strong>. 8–12 sprays split between morning and early afternoon. Not after 4pm — can be stimulating.</p>
 
   <div class="warning-box">
     <strong>🧠 Dementia Prevention Evidence:</strong> A 2025 study demonstrated that intranasal Semax improves cognitive function in Alzheimer's disease mouse models. Semax upregulates BDNF, provides copper-induced neuroprotection, and enhances synaptic plasticity. For heavy artillery, consider Cerebrolysin cycles 2×/year (see "Phase 2" section below).
@@ -613,9 +613,9 @@
   </div>
 
   <p style="color:var(--text-muted);margin:12px 0;">
-    <strong style="color:var(--amber-light);">Reconstitution:</strong> Add 3.0 mL bacteriostatic water → concentration <strong style="color:var(--amber-light);">3.33 mg/mL</strong>.<br>
-    <strong style="color:var(--amber-light);">Syringe Math:</strong> 3.33 mg/mL ÷ 100 = 33.3 mcg/unit → 300 mcg ÷ 33.3 = <strong style="color:var(--amber-light);">9 units</strong>.<br>
-    <strong style="color:var(--amber-light);">Doses per 10mg vial:</strong> ~16 (at 300mcg per dose).
+    <strong style="color:var(--blue-light);">Reconstitution:</strong> Add 3.0 mL bacteriostatic water → concentration <strong style="color:var(--blue-light);">3.33 mg/mL</strong>.<br>
+    <strong style="color:var(--blue-light);">Syringe Math:</strong> 3.33 mg/mL ÷ 100 = 33.3 mcg/unit → 300 mcg ÷ 33.3 = <strong style="color:var(--blue-light);">9 units</strong>.<br>
+    <strong style="color:var(--blue-light);">Doses per 10mg vial:</strong> ~16 (at 300mcg per dose).
   </p>
 
   <div class="warning-box">
@@ -648,9 +648,9 @@
   </div>
 
   <p style="color:var(--text-muted);margin:12px 0;">
-    <strong style="color:var(--amber-light);">Reconstitution (5mg vial):</strong> Add 2.0 mL bac water → <strong style="color:var(--amber-light);">2.5 mg/mL</strong>.<br>
-    <strong style="color:var(--amber-light);">Syringe Math:</strong> 2.5 mg/mL → 2.5 mg = 1 mL = <strong style="color:var(--amber-light);">100 units</strong> (full U-100 syringe).<br>
-    <strong style="color:var(--amber-light);">Doses per 5mg vial:</strong> 2 (at 2.5mg). If using 10mg vial: add 2mL → 5mg/mL, dose 2.5mg = 50 units (4 doses per vial).
+    <strong style="color:var(--blue-light);">Reconstitution (5mg vial):</strong> Add 2.0 mL bac water → <strong style="color:var(--blue-light);">2.5 mg/mL</strong>.<br>
+    <strong style="color:var(--blue-light);">Syringe Math:</strong> 2.5 mg/mL → 2.5 mg = 1 mL = <strong style="color:var(--blue-light);">100 units</strong> (full U-100 syringe).<br>
+    <strong style="color:var(--blue-light);">Doses per 5mg vial:</strong> 2 (at 2.5mg). If using 10mg vial: add 2mL → 5mg/mL, dose 2.5mg = 50 units (4 doses per vial).
   </p>
 
   <table>
@@ -689,11 +689,11 @@
   </div>
 
   <p style="color:var(--text-muted);margin:12px 0;">
-    <strong style="color:var(--amber-light);">Reconstitution:</strong> Add 3.0 mL bac water → <strong style="color:var(--amber-light);">3.33 mg/mL</strong>.<br>
-    <strong style="color:var(--amber-light);">Syringe Math:</strong> 3.33 mg/mL ÷ 100 = 33.3 mcg/unit → 1,000 mcg ÷ 33.3 = <strong style="color:var(--amber-light);">30 units</strong>.<br>
-    <strong style="color:var(--amber-light);">Doses per 10mg vial:</strong> 10.<br>
-    <strong style="color:var(--amber-light);">Timing:</strong> Evening, ≥90 min after last meal, right before bed.<br>
-    <strong style="color:var(--amber-light);">Cycling:</strong> 5 days on / 2 days off weekly; 8–10 week blocks, then 4-week washout.
+    <strong style="color:var(--blue-light);">Reconstitution:</strong> Add 3.0 mL bac water → <strong style="color:var(--blue-light);">3.33 mg/mL</strong>.<br>
+    <strong style="color:var(--blue-light);">Syringe Math:</strong> 3.33 mg/mL ÷ 100 = 33.3 mcg/unit → 1,000 mcg ÷ 33.3 = <strong style="color:var(--blue-light);">30 units</strong>.<br>
+    <strong style="color:var(--blue-light);">Doses per 10mg vial:</strong> 10.<br>
+    <strong style="color:var(--blue-light);">Timing:</strong> Evening, ≥90 min after last meal, right before bed.<br>
+    <strong style="color:var(--blue-light);">Cycling:</strong> 5 days on / 2 days off weekly; 8–10 week blocks, then 4-week washout.
   </p>
 
   <div class="danger-box">
@@ -736,12 +736,12 @@
   </div>
 
   <p style="color:var(--text-muted);margin:12px 0;">
-    <strong style="color:var(--amber-light);">Reconstitution:</strong> Add 2.0 mL bac water → <strong style="color:var(--amber-light);">5 mg/mL</strong>.<br>
-    <strong style="color:var(--amber-light);">Syringe Math:</strong> 5 mg/mL → 5 mg = 1 mL = <strong style="color:var(--amber-light);">100 units</strong> (full U-100 syringe).<br>
-    <strong style="color:var(--amber-light);">Doses per 10mg vial:</strong> 2.<br>
-    <strong style="color:var(--amber-light);">Titration:</strong> Start at 5mg for 2 weeks; can escalate to 10mg if well-tolerated (10mg = 100 units at 10mg/mL → reconstitute with 1mL).<br>
-    <strong style="color:var(--amber-light);">Cycling:</strong> 4 weeks on / 2 weeks off (mitochondrial adaptation cycle).<br>
-    <strong style="color:var(--amber-light);">Timing:</strong> Morning, pre-activity ideally. <strong>Never at night</strong> — energizing, can cause insomnia.
+    <strong style="color:var(--blue-light);">Reconstitution:</strong> Add 2.0 mL bac water → <strong style="color:var(--blue-light);">5 mg/mL</strong>.<br>
+    <strong style="color:var(--blue-light);">Syringe Math:</strong> 5 mg/mL → 5 mg = 1 mL = <strong style="color:var(--blue-light);">100 units</strong> (full U-100 syringe).<br>
+    <strong style="color:var(--blue-light);">Doses per 10mg vial:</strong> 2.<br>
+    <strong style="color:var(--blue-light);">Titration:</strong> Start at 5mg for 2 weeks; can escalate to 10mg if well-tolerated (10mg = 100 units at 10mg/mL → reconstitute with 1mL).<br>
+    <strong style="color:var(--blue-light);">Cycling:</strong> 4 weeks on / 2 weeks off (mitochondrial adaptation cycle).<br>
+    <strong style="color:var(--blue-light);">Timing:</strong> Morning, pre-activity ideally. <strong>Never at night</strong> — energizing, can cause insomnia.
   </p>
 
   <div class="warning-box">
@@ -861,10 +861,10 @@
 </div>
 
 <p style="text-align:center;color:var(--text-muted);font-size:0.85rem;margin-top:16px;">
-  <strong style="color:var(--amber-light);">Semax:</strong> 10 days on / 2 days off. &nbsp;
-  <strong style="color:var(--amber-light);">BPC + TB:</strong> 6 weeks on / 2 weeks off (synced cycle). &nbsp;
-  <strong style="color:var(--amber-light);">Tesa:</strong> 5 on / 2 off weekly; 8–10 wk blocks with 4-wk washout. &nbsp;
-  <strong style="color:var(--amber-light);">MOTS-c:</strong> 4 weeks on / 2 weeks off.
+  <strong style="color:var(--blue-light);">Semax:</strong> 10 days on / 2 days off. &nbsp;
+  <strong style="color:var(--blue-light);">BPC + TB:</strong> 6 weeks on / 2 weeks off (synced cycle). &nbsp;
+  <strong style="color:var(--blue-light);">Tesa:</strong> 5 on / 2 off weekly; 8–10 wk blocks with 4-wk washout. &nbsp;
+  <strong style="color:var(--blue-light);">MOTS-c:</strong> 4 weeks on / 2 weeks off.
 </p>
 
 <!-- ═══════════════════════════════════════ -->
@@ -882,7 +882,7 @@
   <tbody>
     <tr>
       <td>Monday</td>
-      <td><strong style="color:var(--amber-light);">3</strong> (BPC + TB + MOTS-c)</td>
+      <td><strong style="color:var(--blue-light);">3</strong> (BPC + TB + MOTS-c)</td>
       <td>2 (BPC + Tesa)</td>
       <td style="color:var(--text-muted);">Heavy day — rotate sites wide</td>
     </tr>
@@ -945,32 +945,32 @@
   <tbody>
     <tr>
       <td>IGF-1</td>
-      <td style="color:var(--amber-light);">Baseline + Week 8 + Week 16</td>
+      <td style="color:var(--blue-light);">Baseline + Week 8 + Week 16</td>
       <td style="color:var(--text-muted);">Stay within age-adjusted upper normal (~80–200 ng/mL for 60yo)</td>
     </tr>
     <tr>
       <td>PSA</td>
-      <td style="color:var(--amber-light);">Baseline + Week 8</td>
+      <td style="color:var(--blue-light);">Baseline + Week 8</td>
       <td style="color:var(--text-muted);">No elevation from baseline. Any jump → stop Tesa immediately</td>
     </tr>
     <tr>
       <td>HbA1c / fasting glucose</td>
-      <td style="color:var(--amber-light);">Baseline + Week 12</td>
+      <td style="color:var(--blue-light);">Baseline + Week 12</td>
       <td style="color:var(--text-muted);">Tesa can mildly reduce insulin sensitivity — verify no drift</td>
     </tr>
     <tr>
       <td>Body weight / waist</td>
-      <td style="color:var(--amber-light);">Weekly</td>
+      <td style="color:var(--blue-light);">Weekly</td>
       <td style="color:var(--text-muted);">Target: 1–2 lbs/week, 2–3" off waist over 12 weeks</td>
     </tr>
     <tr>
       <td>Sleep quality</td>
-      <td style="color:var(--amber-light);">Daily log</td>
+      <td style="color:var(--blue-light);">Daily log</td>
       <td style="color:var(--text-muted);">Tesa should improve deep sleep; MOTS-c too late can disrupt</td>
     </tr>
     <tr>
       <td>Ride performance</td>
-      <td style="color:var(--amber-light);">Subjective</td>
+      <td style="color:var(--blue-light);">Subjective</td>
       <td style="color:var(--text-muted);">Endurance improvement expected by week 3–4 (MOTS-c + TB/BPC)</td>
     </tr>
   </tbody>
@@ -993,32 +993,32 @@
     <tr>
       <td>Semax</td>
       <td style="color:var(--text-muted);">1× 60mg nasal bottle</td>
-      <td style="color:var(--amber-light);">$60–90</td>
+      <td style="color:var(--blue-light);">$60–90</td>
     </tr>
     <tr>
       <td>BPC-157</td>
       <td style="color:var(--text-muted);">2× 10mg vials</td>
-      <td style="color:var(--amber-light);">$80–120</td>
+      <td style="color:var(--blue-light);">$80–120</td>
     </tr>
     <tr>
       <td>TB-500</td>
       <td style="color:var(--text-muted);">2× 5mg vials (8 doses)</td>
-      <td style="color:var(--amber-light);">$80–120</td>
+      <td style="color:var(--blue-light);">$80–120</td>
     </tr>
     <tr>
       <td>Tesamorelin</td>
       <td style="color:var(--text-muted);">2× 10mg vials (20 doses)</td>
-      <td style="color:var(--amber-light);">$140–200</td>
+      <td style="color:var(--blue-light);">$140–200</td>
     </tr>
     <tr>
       <td>MOTS-c</td>
       <td style="color:var(--text-muted);">2–4× 10mg vials</td>
-      <td style="color:var(--amber-light);">$160–320</td>
+      <td style="color:var(--blue-light);">$160–320</td>
     </tr>
     <tr style="border-top:2px solid var(--border);">
       <td><strong>TOTAL</strong></td>
       <td></td>
-      <td><strong style="color:var(--amber-light);">$520–850/mo</strong></td>
+      <td><strong style="color:var(--blue-light);">$520–850/mo</strong></td>
     </tr>
   </tbody>
 </table>
@@ -1038,7 +1038,7 @@
 
 <div class="card-grid">
   <div class="card">
-    <h3 style="font-weight:400;color:var(--amber-light);margin-bottom:12px;">🧠 Cerebrolysin</h3>
+    <h3 style="font-weight:400;color:var(--blue-light);margin-bottom:12px;">🧠 Cerebrolysin</h3>
     <p style="color:var(--text-muted);">The clinical nuclear option for neurodegeneration prevention. Porcine brain-derived neuropeptide cocktail — improves cognitive function in Alzheimer's and vascular dementia.</p>
     <ul class="checklist" style="margin-top:12px;">
       <li>4-week cycles, 2×/year</li>
@@ -1048,7 +1048,7 @@
     </ul>
   </div>
   <div class="card">
-    <h3 style="font-weight:400;color:var(--amber-light);margin-bottom:12px;">🧬 Epitalon</h3>
+    <h3 style="font-weight:400;color:var(--blue-light);margin-bottom:12px;">🧬 Epitalon</h3>
     <p style="color:var(--text-muted);">Telomerase activation + pineal function. Bioregulator peptide that extends cellular lifespan and normalizes melatonin rhythms.</p>
     <ul class="checklist" style="margin-top:12px;">
       <li>10-day cycles, 2–3×/year</li>
@@ -1068,19 +1068,19 @@
 </div>
 
 <div class="card" style="max-width:800px;margin:0 auto;">
-  <p style="margin-bottom:16px;"><strong style="color:var(--amber-light);">Q: Why not just use straight HGH instead of Tesamorelin?</strong></p>
+  <p style="margin-bottom:16px;"><strong style="color:var(--blue-light);">Q: Why not just use straight HGH instead of Tesamorelin?</strong></p>
   <p style="color:var(--text-muted);margin-bottom:24px;">Tesamorelin is a GHRH analog — it stimulates the pituitary to release your own GH in pulses, preserving the natural feedback loop. Straight HGH floods the system, suppresses endogenous production, and has a worse IGF-1 overshoot profile. For a 60-year-old, the cleaner GH pulse from Tesa is safer — especially for prostate health.</p>
 
-  <p style="margin-bottom:16px;"><strong style="color:var(--amber-light);">Q: Can BPC-157 be taken orally instead of injected?</strong></p>
+  <p style="margin-bottom:16px;"><strong style="color:var(--blue-light);">Q: Can BPC-157 be taken orally instead of injected?</strong></p>
   <p style="color:var(--text-muted);margin-bottom:24px;">Oral BPC-157 (Arg-BPC capsules) works well for gut-specific issues but doesn't distribute systemically to joints and tendons. For a mountain biker, subQ is strongly recommended — it reaches the knees, shoulders, and wrists where he needs it. If gut health is also a concern, you can add oral BPC on top.</p>
 
-  <p style="margin-bottom:16px;"><strong style="color:var(--amber-light);">Q: Is MOTS-c worth it, or can we skip it?</strong></p>
+  <p style="margin-bottom:16px;"><strong style="color:var(--blue-light);">Q: Is MOTS-c worth it, or can we skip it?</strong></p>
   <p style="color:var(--text-muted);margin-bottom:24px;">For a 60-year-old trying to lose 20 lbs while maintaining athletic performance, MOTS-c is the highest-leverage peptide in the stack after the cognitive shield. It works on metabolic flexibility — the root cause of age-related weight gain — rather than just appetite or calories. If you had to drop one, drop TB-500 before MOTS-c. But ideally, run all 5.</p>
 
-  <p style="margin-bottom:16px;"><strong style="color:var(--amber-light);">Q: Does he need lab work for all of these?</strong></p>
+  <p style="margin-bottom:16px;"><strong style="color:var(--blue-light);">Q: Does he need lab work for all of these?</strong></p>
   <p style="color:var(--text-muted);margin-bottom:24px;">Tesamorelin is the only one requiring lab monitoring (IGF-1, PSA, glucose). Semax, BPC-157, TB-500, and MOTS-c are non-hormonal and don't require specific labs. That said, a baseline metabolic panel and CBC at 60 is just good practice regardless.</p>
 
-  <p style="margin-bottom:16px;"><strong style="color:var(--amber-light);">Q: What about the dementia family history — is Semax enough?</strong></p>
+  <p style="margin-bottom:16px;"><strong style="color:var(--blue-light);">Q: What about the dementia family history — is Semax enough?</strong></p>
   <p style="color:var(--text-muted);">Semax is the daily shield — it upregulates BDNF, provides neuroprotection, and has direct Alzheimer's model evidence. But if dementia is the #1 concern, the Phase 2 additions (Cerebrolycin + Epitalon) are worth serious consideration. Cerebrolysin is clinical-grade neuroprotection. At minimum, one Cerebrolysin cycle per year starting at 60 is a very reasonable insurance policy.</p>
 </div>
 
@@ -1095,12 +1095,12 @@
     These protocols are for informational and research purposes only.<br>
     Peptides should only be used under the supervision of a licensed medical professional.<br>
     Consult with a physician before starting any new peptide regimen — especially at age 60+.<br><br>
-    <strong style="color:var(--amber-light);">Research purposes only. Not medical advice.</strong>
+    <strong style="color:var(--blue-light);">Research purposes only. Not medical advice.</strong>
   </p>
 </div>
 
 <div class="footer">
-  <p>The Big Fella Protocol &nbsp;·&nbsp; v1.0 &nbsp;·&nbsp; Built for the trail &nbsp;·&nbsp; <span style="color:var(--amber-light);">🏔️</span></p>
+  <p>The Big Fella Protocol &nbsp;·&nbsp; v1.0 &nbsp;·&nbsp; Built for the trail &nbsp;·&nbsp; <span style="color:var(--blue-light);">🏔️</span></p>
 </div>
 
 </div><!-- /container -->
