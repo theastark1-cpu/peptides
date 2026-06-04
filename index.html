@@ -36,6 +36,30 @@
     min-height: 100vh;
   }
 
+  /* ── Navigation ───────────────────────── */
+  .top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(22,22,30,0.8);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .top-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .top-nav a:hover,
+  .top-nav a.active { color: var(--green-accent); }
+
   /* ── Hero ───────────────────────────── */
   .hero {
     background: linear-gradient(135deg, #0f1a13 0%, #0d0d11 40%, #0f1a13 70%, #0d0d11 100%);
@@ -420,6 +444,11 @@
 </style>
 </head>
 <body>
+
+<nav class="top-nav">
+  <a href="index.html" class="active">Sweet Lady</a>
+  <a href="big-fella.html">Big Fella</a>
+</nav>
 
 <div id="pw-overlay" class="hidden">
   <div id="pw-box">
