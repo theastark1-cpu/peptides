@@ -642,6 +642,102 @@
 </div>
 
 <!-- ═══════════════════════════════════════ -->
+<!-- PROTOCOL PROGRESS TRACKER                 -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section-header" style="margin-top:40px;">
+  <h2>Protocol Progress Tracker</h2>
+  <div class="rule"></div>
+</div>
+
+<div class="card" style="text-align:center;margin-bottom:20px;">
+  <p style="color:var(--text-muted);margin-bottom:12px;">Set your start date to track cycle progress</p>
+  <input type="date" id="start-date" style="background:var(--bg);border:1px solid var(--border);color:var(--text);padding:10px 16px;border-radius:8px;font-size:1rem;font-family:inherit;text-align:center;">
+  <span id="tracker-status" style="display:block;margin-top:8px;font-size:0.85rem;color:var(--green-light);"></span>
+</div>
+
+<div class="card" style="overflow-x:auto;">
+  <table id="progress-table" style="width:100%;">
+    <thead>
+      <tr><th>Peptide</th><th>Status</th><th>Progress</th><th>Cycle</th></tr>
+    </thead>
+    <tbody>
+      <tr id="row-semax"><td>Semax</td><td></td><td></td><td>6 on / 2 off</td></tr>
+      <tr id="row-tesamorelin"><td>Tesamorelin</td><td></td><td></td><td>8 on / 4 off</td></tr>
+      <tr id="row-ghkcu"><td>GHK-Cu</td><td></td><td></td><td>30d on / 14d off</td></tr>
+      <tr id="row-dsip"><td>DSIP</td><td></td><td></td><td>2 on / 1 off</td></tr>
+      <tr id="row-pinealon"><td>Pinealon</td><td></td><td></td><td>30d on / 90d off</td></tr>
+      <tr id="row-kpv"><td>KPV</td><td></td><td></td><td>EOD year-round</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+(function() {
+  var input = document.getElementById('start-date');
+  var status = document.getElementById('tracker-status');
+  var today = new Date();
+
+  function getWeekNumber(d) {
+    var start = new Date(d.getFullYear(), 0, 1);
+    return Math.ceil(((d - start) / 86400000 + start.getDay() + 1) / 7);
+  }
+
+  function daysBetween(a, b) { return Math.floor((b - a) / 86400000); }
+
+  function updateTracker() {
+    if (!input.value) { status.textContent = 'Select your start date to begin tracking'; return; }
+    var start = new Date(input.value + 'T00:00:00');
+    if (start > today) { status.textContent = 'Protocol starts on ' + start.toLocaleDateString(); return; }
+    var elapsed = daysBetween(start, today);
+    var week = Math.floor(elapsed / 7) + 1;
+    status.innerHTML = '<strong>Week ' + week + '</strong> · Day ' + (elapsed + 1) + ' · Started ' + start.toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'});
+
+    // Semax: 8-week macro (6 on + 2 off)
+    var sw = (week - 1) % 8;
+    updateRow('row-semax', sw < 6, sw < 6 ? (sw + 1) + '/6 weeks' : 'OFF ' + ((8 - sw)) + 'w left', sw < 6 ? Math.round((sw + 1) / 6 * 100) : 100, '6w on / 2w off');
+
+    // Tesamorelin: 12-week macro (8 on + 4 off)
+    var tw = (week - 1) % 12;
+    updateRow('row-tesamorelin', tw < 8, tw < 8 ? (tw + 1) + '/8 weeks' : 'Washout ' + ((12 - tw)) + 'w left', tw < 8 ? Math.round((tw + 1) / 8 * 100) : 100, '8w on / 4w off');
+
+    // GHK-Cu: 44-day macro (30 on + 14 off)
+    var gd = elapsed % 44;
+    updateRow('row-ghkcu', gd < 30, gd < 30 ? 'Day ' + (gd + 1) + '/30' : 'OFF ' + (44 - gd) + 'd left', gd < 30 ? Math.round((gd + 1) / 30 * 100) : 100, '30d on / 14d off');
+
+    // DSIP: 3-week macro (2 on + 1 off)
+    var dw = (week - 1) % 3;
+    updateRow('row-dsip', dw < 2, dw < 2 ? (dw + 1) + '/2 weeks' : 'OFF ' + (3 - dw) + 'w left', dw < 2 ? Math.round((dw + 1) / 2 * 100) : 100, '2w on / 1w off');
+
+    // Pinealon: 120-day macro (30 on + 90 off)
+    var pd = elapsed % 120;
+    var pOn = pd < 30;
+    var pNext = pOn ? (30 - pd) : (120 - pd);
+    updateRow('row-pinealon', pOn, pOn ? 'Day ' + (pd + 1) + '/30' : 'OFF · next in ' + pNext + 'd', pOn ? Math.round((pd + 1) / 30 * 100) : 0, '30d on / 90d off');
+
+    // KPV: always on
+    updateRow('row-kpv', true, 'Week ' + week, 100, 'EOD year-round');
+  }
+
+  function updateRow(id, isOn, label, pct, cycle) {
+    var row = document.getElementById(id);
+    if (!row) return;
+    var tds = row.getElementsByTagName('td');
+    var bar = '<div style="background:var(--card);border-radius:6px;height:8px;width:100%;margin-top:4px;"><div style="background:' + (isOn ? 'var(--green-accent)' : 'var(--text-muted)') + ';height:8px;border-radius:6px;width:' + pct + '%;min-width:' + (pct > 0 ? '2px' : '0') + ';"></div></div>';
+    tds[0].innerHTML = '<span style="color:' + (isOn ? 'var(--green-light)' : 'var(--text-muted)') + ';font-weight:' + (isOn ? '700' : '400') + ';">' + (isOn ? '✅ ON' : '❌ OFF') + '</span>';
+    tds[1].innerHTML = '<span style="font-size:0.85rem;">' + label + '</span>' + bar;
+    tds[2].innerHTML = '<span style="font-size:0.78rem;color:var(--text-muted);">' + cycle + '</span>';
+  }
+
+  var saved = localStorage.getItem('slp_start_date');
+  if (saved) { input.value = saved; updateTracker(); }
+  input.addEventListener('change', function() {
+    localStorage.setItem('slp_start_date', input.value);
+    updateTracker();
+  });
+})();
+</script>
+
+<!-- ═══════════════════════════════════════ -->
 <!-- RECONSTITUTION QUICK REFERENCE           -->
 <!-- ═══════════════════════════════════════ -->
 <div class="section-header">
