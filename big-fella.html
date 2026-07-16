@@ -74,6 +74,44 @@
   .fill-gut { background: var(--blue-mid); }
   .fill-hair { background: #5b8cb8; }
 
+  /* ── Syringe Cards ───────────────────── */
+  .syringe-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    border-left: 3px solid var(--blue);
+  }
+  .syringe-card h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--blue-light);
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+  }
+  .syringe-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+  }
+  .syringe-table th {
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--blue-mid);
+    font-weight: 400;
+    border-bottom: 1px solid var(--border);
+  }
+  .syringe-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.95rem;
+  }
+  .syringe-table tr:last-child td { border-bottom: none; }
+
   /* ── Hero ───────────────────────────── */
   .hero {
     background: linear-gradient(135deg, #0a121d 0%, #0d0d11 40%, #0a101a 70%, #0d0d11 100%);
@@ -1003,6 +1041,153 @@
 
 <div class="warning-box">
   <strong>📋 Weekly Tally:</strong> <strong style="color:var(--blue-light);">15 injections/week</strong> (Mon: 5, Wed: 4, Thu: 1, Fri: 4). On M/W/F ON days: AM combine Semax+BPC/TB Blend in one syringe; MOTS-c gets its own syringe. PM: BPC/TB Blend in one syringe, Tesa in separate. <strong style="color:var(--blue-light);">Tue/Sat/Sun: nothing.</strong>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SYRINGE SETUP                              -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section-header">
+  <h2>💉 Syringe Setup — Draw Order</h2>
+  <div class="rule"></div>
+  <p style="color:var(--text-muted);margin-top:12px;">Each card is one injection. Draw in order. Combine only when compatible. Inject slowly.</p>
+</div>
+
+<!-- Morning Syringe: AM Combo -->
+<div class="syringe-card">
+  <h3>☀️ Morning Syringe — AM Combo <span style="font-weight:400;color:var(--text-muted);font-size:0.85rem;">(Upon Waking · Fasted · M/W/F only)</span></h3>
+  <table class="syringe-table">
+    <thead>
+      <tr>
+        <th style="width:60px;">Draw</th>
+        <th>Peptide</th>
+        <th>Dose</th>
+        <th style="text-align:right;">Units</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:center;color:var(--blue-light);font-weight:600;">1</td>
+        <td>Semax</td>
+        <td>500 mcg</td>
+        <td style="text-align:right;color:var(--blue-light);font-weight:600;">15 u</td>
+      </tr>
+      <tr>
+        <td style="text-align:center;color:var(--blue-light);font-weight:600;">2</td>
+        <td>BPC/TB Blend</td>
+        <td>500 + 500 mcg</td>
+        <td style="text-align:right;color:var(--blue-light);font-weight:600;">20 u</td>
+      </tr>
+      <tr style="border-top:2px solid var(--blue);">
+        <td colspan="3" style="text-align:right;font-weight:700;color:var(--blue-light);">COMBINED — 1 injection</td>
+        <td style="text-align:right;font-weight:700;color:var(--blue-light);">35 u</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="color:var(--text-muted);font-size:0.88rem;margin-top:12px;font-style:italic;">
+    Semax + BPC/TB Blend are compatible in one syringe. Inject <strong style="color:var(--blue-light);">slowly</strong> over 10–15 sec. Skip on Tue/Sat/Sun (off-days) or during Tesa washout.
+  </p>
+</div>
+
+<!-- Morning MOTS-c separate -->
+<div class="syringe-card">
+  <h3>⚡ Morning Syringe 2 — MOTS-c <span style="font-weight:400;color:var(--text-muted);font-size:0.85rem;">(After AM Combo · M/W/F only)</span></h3>
+  <table class="syringe-table">
+    <thead>
+      <tr>
+        <th style="width:60px;">Draw</th>
+        <th>Peptide</th>
+        <th>Dose</th>
+        <th style="text-align:right;">Units</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:center;color:var(--blue-light);font-weight:600;">1</td>
+        <td>MOTS-c</td>
+        <td>5 mg</td>
+        <td style="text-align:right;color:var(--blue-light);font-weight:600;">100 u</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="color:var(--text-muted);font-size:0.88rem;margin-top:12px;font-style:italic;">
+    MOTS-c volume (100u) too large to combine with AM combo. Draw alone. Inject slowly — sting is common.
+  </p>
+</div>
+
+<!-- Thursday Light Day -->
+<div class="syringe-card">
+  <h3>🌤️ Thursday Light Day — BPC/TB Blend <span style="font-weight:400;color:var(--text-muted);font-size:0.85rem;">(AM Only)</span></h3>
+  <table class="syringe-table">
+    <thead>
+      <tr>
+        <th style="width:60px;">Draw</th>
+        <th>Peptide</th>
+        <th>Dose</th>
+        <th style="text-align:right;">Units</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:center;color:var(--blue-light);font-weight:600;">1</td>
+        <td>BPC/TB Blend</td>
+        <td>500 + 500 mcg</td>
+        <td style="text-align:right;color:var(--blue-light);font-weight:600;">20 u</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="color:var(--text-muted);font-size:0.88rem;margin-top:12px;font-style:italic;">
+    Light maintenance day. One injection only. Skips Semax/MOTS-c/Tesa.
+  </p>
+</div>
+
+<!-- Night Syringe 1: Tesa -->
+<div class="syringe-card">
+  <h3>🌙 Night Syringe 1 — Tesamorelin <span style="font-weight:400;color:var(--text-muted);font-size:0.85rem;">(90+ min after last meal · M/W/F only)</span></h3>
+  <table class="syringe-table">
+    <thead>
+      <tr>
+        <th>Peptide</th>
+        <th>Dose</th>
+        <th style="text-align:right;">Units</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tesamorelin</td>
+        <td>1 mg</td>
+        <td style="text-align:right;color:var(--blue-light);font-weight:600;">30 u</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="color:var(--text-muted);font-size:0.88rem;margin-top:12px;font-style:italic;">
+    <strong style="color:var(--blue-light);">Must inject separately.</strong> Never combine Tesa with other peptides. M/W/F only — 8–10 week blocks, then 4-week washout. Pre-medicate with 25–50 mg diphenhydramine if sensitive to histamine reaction.
+  </p>
+</div>
+
+<!-- Night Syringe 2: BPC/TB -->
+<div class="syringe-card">
+  <h3>🌙 Night Syringe 2 — BPC/TB Blend <span style="font-weight:400;color:var(--text-muted);font-size:0.85rem;">(Bedtime · M/W/F only)</span></h3>
+  <table class="syringe-table">
+    <thead>
+      <tr>
+        <th style="width:60px;">Draw</th>
+        <th>Peptide</th>
+        <th>Dose</th>
+        <th style="text-align:right;">Units</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:center;color:var(--blue-light);font-weight:600;">1</td>
+        <td>BPC/TB Blend</td>
+        <td>500 + 500 mcg</td>
+        <td style="text-align:right;color:var(--blue-light);font-weight:600;">20 u</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="color:var(--text-muted);font-size:0.88rem;margin-top:12px;font-style:italic;">
+    Evening dose for sustained overnight repair. Uses the same syringe draw math as the AM dose.
+  </p>
 </div>
 
 <!-- MONITORING                                -->
