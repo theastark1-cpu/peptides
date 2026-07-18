@@ -6,115 +6,602 @@
 <title>Jack Has Nothing on Jill Protocol — Pre-Diabetic Peptide Protocol</title>
 <style>
   :root {
-    --bg: #0f1115;
-    --panel: #161a22;
-    --panel-2: #1c2230;
-    --border: #2a3142;
-    --text: #e8ebf0;
-    --muted: #9aa3b2;
-    --accent: #ff7a59;
-    --accent-2: #ffb38a;
-    --warn: #ffb86b;
-    --good: #6ee7b7;
-    --code-bg: #0b0d12;
+    --bg: #0d0a14;
+    --bg-2: #15101f;
+    --card: #1a1429;
+    --card-hover: #221a35;
+    --border: #2d2342;
+    --border-soft: #1f1830;
+    --text: #f0e8f5;
+    --muted: #a596b8;
+    --rose: #ff6b9d;
+    --rose-light: #ff9ec4;
+    --rose-deep: #c44577;
+    --coral: #ff8e7a;
+    --amber: #ffb86b;
+    --sage: #8fd9b6;
+    --plum: #b18df0;
+    --shadow: 0 8px 32px rgba(255, 107, 157, 0.08);
+    --shadow-lg: 0 16px 48px rgba(255, 107, 157, 0.15);
   }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.55; }
-  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 22px 80px; }
-  header { border-bottom: 1px solid var(--border); padding-bottom: 18px; margin-bottom: 28px; }
-  .eyebrow { color: var(--accent); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; }
-  h1 { font-size: 34px; margin: 6px 0 8px; letter-spacing: -0.02em; }
-  .sub { color: var(--muted); font-size: 15px; margin: 0; }
-  h2 { font-size: 22px; margin-top: 36px; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
-  h3 { font-size: 17px; margin-top: 22px; margin-bottom: 8px; color: var(--accent-2); }
-  p { margin: 8px 0; }
-  ul, ol { padding-left: 22px; }
-  li { margin: 4px 0; }
-  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
-  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); }
-  th { background: var(--panel); color: var(--accent-2); font-weight: 600; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
-  tr:hover td { background: var(--panel-2); }
-  code { background: var(--code-bg); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; font-size: 13px; font-family: "SF Mono", Menlo, Monaco, Consolas, monospace; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 14px 0; }
-  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
-  .card .label { color: var(--muted); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
-  .card .value { font-size: 17px; font-weight: 600; }
-  .card .note { color: var(--muted); font-size: 12px; margin-top: 4px; }
-  .callout { background: var(--panel); border-left: 3px solid var(--accent); border-radius: 6px; padding: 12px 16px; margin: 16px 0; color: var(--text); }
-  .callout.warn { border-left-color: var(--warn); }
-  .callout.good { border-left-color: var(--good); }
-  .pill { display: inline-block; background: var(--panel-2); border: 1px solid var(--border); color: var(--accent-2); padding: 2px 10px; border-radius: 999px; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-right: 6px; }
-  hr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
-  footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
-  footer a { color: var(--accent); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-  .toc { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; margin: 16px 0 24px; }
-  .toc ol { margin: 6px 0 0; }
-  .toc a { color: var(--accent-2); text-decoration: none; }
-  .toc a:hover { color: var(--accent); text-decoration: underline; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background:
+      radial-gradient(ellipse at top left, rgba(255, 107, 157, 0.08), transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(177, 141, 240, 0.06), transparent 50%),
+      var(--bg);
+    color: var(--text);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.75;
+    font-size: 1.02rem;
+    min-height: 100vh;
+  }
+
+  /* ── Navigation ──────────────────────── */
+  .top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(26, 20, 41, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .top-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    transition: color 0.2s;
+  }
+  .top-nav a:hover { color: var(--rose); }
+
+  /* ── Hero ────────────────────────────── */
+  .hero {
+    position: relative;
+    padding: 80px 24px 60px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 107, 157, 0.15) 0%, transparent 60%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: pulse 8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    color: var(--rose);
+    font-size: 0.78rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    padding: 6px 16px;
+    border: 1px solid var(--rose);
+    border-radius: 999px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, var(--rose-light) 0%, var(--plum) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero .sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 640px;
+    margin: 0 auto;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--rose), transparent);
+    margin: 32px auto 0;
+  }
+
+  /* ── Container ───────────────────────── */
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* ── Section headers ─────────────────── */
+  h2 {
+    font-size: 1.85rem;
+    font-weight: 400;
+    margin: 64px 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: -0.01em;
+  }
+  h2 .num {
+    color: var(--rose);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    margin-right: 12px;
+    font-weight: 600;
+  }
+  h3 {
+    font-size: 1.25rem;
+    color: var(--rose-light);
+    margin: 28px 0 10px;
+    font-weight: 400;
+  }
+  p { margin: 10px 0; }
+  ul, ol { padding-left: 24px; margin: 10px 0; }
+  li { margin: 6px 0; }
+
+  /* ── Goals grid ──────────────────────── */
+  .goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .goal-card {
+    background: linear-gradient(135deg, var(--card) 0%, var(--bg-2) 100%);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 22px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  }
+  .goal-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--rose);
+    box-shadow: var(--shadow-lg);
+  }
+  .goal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--rose), var(--plum));
+  }
+  .goal-num {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--rose);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1;
+    margin-bottom: 8px;
+    opacity: 0.8;
+  }
+  .goal-text {
+    font-size: 0.98rem;
+    color: var(--text);
+  }
+
+  /* ── Peptide pills ───────────────────── */
+  .peptide-pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .pill-reta {
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.15), rgba(196, 69, 119, 0.15));
+    border: 1px solid var(--rose);
+    color: var(--rose-light);
+  }
+  .pill-bpc {
+    background: linear-gradient(135deg, rgba(143, 217, 182, 0.15), rgba(143, 217, 182, 0.08));
+    border: 1px solid var(--sage);
+    color: var(--sage);
+  }
+  .pill-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: glow 2s ease-in-out infinite;
+  }
+  @keyframes glow {
+    0%, 100% { opacity: 0.6; box-shadow: 0 0 4px currentColor; }
+    50% { opacity: 1; box-shadow: 0 0 12px currentColor; }
+  }
+
+  /* ── Tables ──────────────────────────── */
+  .table-wrap {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 20px 0;
+    box-shadow: var(--shadow);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.92rem;
+  }
+  thead th {
+    background: linear-gradient(135deg, var(--bg-2), var(--card));
+    color: var(--rose-light);
+    font-weight: 600;
+    text-align: left;
+    padding: 14px 16px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--text);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--card-hover); }
+  tbody tr.taper td { color: var(--amber); }
+
+  /* ── Ramp visualization ──────────────── */
+  .ramp-viz {
+    background: linear-gradient(135deg, var(--card) 0%, var(--bg-2) 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin: 24px 0;
+    box-shadow: var(--shadow);
+  }
+  .ramp-bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 6px;
+    height: 180px;
+    margin-top: 16px;
+    padding: 0 4px;
+  }
+  .ramp-bar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+  }
+  .ramp-bar .bar {
+    width: 100%;
+    background: linear-gradient(180deg, var(--rose) 0%, var(--rose-deep) 100%);
+    border-radius: 6px 6px 2px 2px;
+    transition: transform 0.3s, filter 0.3s;
+    min-height: 8px;
+    position: relative;
+  }
+  .ramp-bar:hover .bar {
+    transform: scaleY(1.05);
+    filter: brightness(1.2);
+    transform-origin: bottom;
+  }
+  .ramp-bar.peak .bar {
+    background: linear-gradient(180deg, var(--plum) 0%, var(--rose-deep) 100%);
+    box-shadow: 0 0 20px rgba(177, 141, 240, 0.5);
+  }
+  .ramp-bar.taper .bar {
+    background: linear-gradient(180deg, var(--amber) 0%, #c4844a 100%);
+  }
+  .ramp-bar .dose {
+    font-size: 0.72rem;
+    color: var(--rose-light);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+  }
+  .ramp-bar .wk {
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .ramp-legend {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 18px;
+    font-size: 0.78rem;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--muted);
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-swatch {
+    width: 12px; height: 12px; border-radius: 3px;
+  }
+  .sw-ramp { background: linear-gradient(180deg, var(--rose), var(--rose-deep)); }
+  .sw-peak { background: linear-gradient(180deg, var(--plum), var(--rose-deep)); }
+  .sw-taper { background: linear-gradient(180deg, var(--amber), #c4844a); }
+
+  /* ── Schedule cards ──────────────────── */
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .schedule-card {
+    background: linear-gradient(135deg, var(--card), var(--bg-2));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .schedule-card .freq {
+    color: var(--rose);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .schedule-card .name {
+    font-size: 1.25rem;
+    color: var(--rose-light);
+    margin-bottom: 6px;
+  }
+  .schedule-card .dose {
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .schedule-card .note {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-top: 6px;
+  }
+
+  /* ── Callouts ────────────────────────── */
+  .callout {
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.06), rgba(177, 141, 240, 0.04));
+    border-left: 3px solid var(--rose);
+    border-radius: 0 12px 12px 0;
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+  .callout.warn {
+    background: linear-gradient(135deg, rgba(255, 184, 107, 0.08), rgba(255, 184, 107, 0.03));
+    border-left-color: var(--amber);
+  }
+  .callout.good {
+    background: linear-gradient(135deg, rgba(143, 217, 182, 0.08), rgba(143, 217, 182, 0.03));
+    border-left-color: var(--sage);
+  }
+  .callout strong { color: var(--rose-light); }
+
+  /* ── Evidence grid ───────────────────── */
+  .evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 24px 0;
+  }
+  .evidence-card {
+    background: linear-gradient(135deg, var(--card), var(--bg-2));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .evidence-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--rose);
+  }
+  .evidence-card .label {
+    color: var(--rose);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .evidence-card h3 {
+    color: var(--rose-light);
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+  .evidence-card .evidence-tag {
+    display: inline-block;
+    background: rgba(177, 141, 240, 0.15);
+    border: 1px solid var(--plum);
+    color: var(--plum);
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  /* ── Lifestyle bullets ───────────────── */
+  .lifestyle-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: grid;
+    gap: 10px;
+  }
+  .lifestyle-list li {
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 14px 18px 14px 44px;
+    position: relative;
+    font-size: 0.95rem;
+  }
+  .lifestyle-list li::before {
+    content: '✦';
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--rose);
+    font-size: 1.1rem;
+  }
+
+  /* ── Footer ──────────────────────────── */
+  footer {
+    margin-top: 80px;
+    padding: 32px 24px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+  footer a {
+    color: var(--rose);
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--rose-light); }
+  .footer-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
   @media (max-width: 640px) {
-    h1 { font-size: 26px; }
-    .wrap { padding: 22px 16px 60px; }
-    table { font-size: 13px; }
+    .hero { padding: 56px 20px 40px; }
+    h2 { font-size: 1.5rem; margin-top: 48px; }
+    .ramp-bars { height: 140px; gap: 3px; }
+    .ramp-bar .dose { font-size: 0.65rem; }
+    .ramp-bar .wk { font-size: 0.62rem; }
+    .top-nav { gap: 14px; padding: 12px 14px; }
+    .top-nav a { font-size: 0.72rem; letter-spacing: 0.04em; }
   }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-<header>
-  <div class="eyebrow">Peptide Protocol · Phase 1</div>
-  <h1>Jack Has Nothing on Jill Protocol</h1>
-  <p class="sub">Pre-Diabetic Peptide Protocol for Weight Loss, Insulin Sensitivity, Gut Health &amp; Metabolic Optimization</p>
-</header>
-
-<nav class="toc">
-  <strong style="color: var(--accent-2);">Contents</strong>
-  <ol>
-    <li><a href="#goals">Primary Goals</a></li>
-    <li><a href="#peptides">Peptides in this Phase</a></li>
-    <li><a href="#recon">Reconstitution &amp; Concentration Chart</a></li>
-    <li><a href="#dosage">Dosage &amp; Syringe Chart (Target Full Doses)</a></li>
-    <li><a href="#ramp">Retatrutide Ramp Schedule</a></li>
-    <li><a href="#schedule">Daily &amp; Weekly Schedule</a></li>
-    <li><a href="#lifestyle">Lifestyle Requirements</a></li>
-    <li><a href="#evidence">Benefits &amp; Supporting Evidence</a></li>
-    <li><a href="#synergy">Stacking Synergy</a></li>
-  </ol>
+<nav class="top-nav">
+  <a href="#goals">Goals</a>
+  <a href="#peptides">Peptides</a>
+  <a href="#recon">Recon</a>
+  <a href="#dosage">Dosage</a>
+  <a href="#ramp">Ramp</a>
+  <a href="#schedule">Schedule</a>
+  <a href="#lifestyle">Lifestyle</a>
+  <a href="#evidence">Evidence</a>
 </nav>
 
-<section id="goals">
-  <h2>Primary Goals</h2>
-  <ol>
-    <li>Blood sugar control &amp; pre-diabetes reversal</li>
-    <li>Targeted fat loss (especially visceral)</li>
-    <li>Gut repair &amp; inflammation reduction</li>
-    <li>Overall metabolic health, energy, and body composition improvement</li>
-  </ol>
-</section>
+<header class="hero">
+  <div class="hero-eyebrow">Peptide Protocol · Phase 1</div>
+  <h1>Jack Has Nothing<br>on Jill</h1>
+  <p class="sub">A pre-diabetic peptide protocol for weight loss, insulin sensitivity, gut health &amp; metabolic optimization</p>
+  <div class="hero-divider"></div>
+</header>
 
-<section id="peptides">
-  <h2>Peptides in this Phase</h2>
-  <p><span class="pill">Retatrutide</span><span class="pill">BPC/TB Wolverine Blend</span></p>
-</section>
+<div class="wrap">
 
-<section id="recon">
-  <h2>1. Reconstitution &amp; Concentration Chart</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Peptide</th>
-        <th>Vial Size</th>
-        <th>BAC Water</th>
-        <th>Concentration</th>
-        <th>mcg per Unit (U-100)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Retatrutide</td><td>50 mg</td><td>3 ml</td><td>16.67 mg/ml</td><td>166.7 mcg per unit</td></tr>
-      <tr><td>BPC/TB Wolverine Blend</td><td>20 mg total</td><td>3 ml</td><td>6.67 mg/ml total</td><td>66.7 mcg total per unit</td></tr>
-    </tbody>
-  </table>
+  <h2 id="goals"><span class="num">01</span>Primary Goals</h2>
+  <div class="goals-grid">
+    <div class="goal-card">
+      <div class="goal-num">01</div>
+      <div class="goal-text">Blood sugar control &amp; pre-diabetes reversal</div>
+    </div>
+    <div class="goal-card">
+      <div class="goal-num">02</div>
+      <div class="goal-text">Targeted fat loss (especially visceral)</div>
+    </div>
+    <div class="goal-card">
+      <div class="goal-num">03</div>
+      <div class="goal-text">Gut repair &amp; inflammation reduction</div>
+    </div>
+    <div class="goal-card">
+      <div class="goal-num">04</div>
+      <div class="goal-text">Metabolic health, energy, body composition</div>
+    </div>
+  </div>
+
+  <h2 id="peptides"><span class="num">02</span>Peptides in this Phase</h2>
+  <div class="peptide-pills">
+    <span class="pill pill-reta"><span class="pill-dot"></span>Retatrutide</span>
+    <span class="pill pill-bpc"><span class="pill-dot"></span>BPC/TB Wolverine Blend</span>
+  </div>
+
+  <h2 id="recon"><span class="num">03</span>Reconstitution &amp; Concentration</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Peptide</th>
+          <th>Vial Size</th>
+          <th>BAC Water</th>
+          <th>Concentration</th>
+          <th>mcg / Unit (U-100)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Retatrutide</strong></td>
+          <td>50 mg</td>
+          <td>3 ml</td>
+          <td>16.67 mg/ml</td>
+          <td>166.7 mcg / unit</td>
+        </tr>
+        <tr>
+          <td><strong>BPC/TB Wolverine</strong></td>
+          <td>20 mg total</td>
+          <td>3 ml</td>
+          <td>6.67 mg/ml total</td>
+          <td>66.7 mcg total / unit</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <div class="callout">
     <strong>Reconstitution notes</strong>
     <ul>
@@ -123,117 +610,158 @@
       <li>U-100 insulin syringes, 29 gauge, ¼ inch (100 units = 1 ml). Round down to the nearest practical unit.</li>
     </ul>
   </div>
-</section>
 
-<section id="dosage">
-  <h2>2. Dosage &amp; Syringe Chart (Target Full Doses)</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Peptide</th>
-        <th>Target Dose</th>
-        <th>Volume (ml)</th>
-        <th>Units (approx.)</th>
-        <th>Frequency</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Retatrutide</td><td>Per ramp schedule</td><td>See ramp</td><td>See ramp</td><td>Once weekly</td></tr>
-      <tr><td>BPC/TB Wolverine</td><td>2 mg total blend</td><td>0.3 ml</td><td>30 units</td><td>EOD (every other day)</td></tr>
-    </tbody>
-  </table>
-</section>
+  <h2 id="dosage"><span class="num">04</span>Dosage &amp; Syringe Chart</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Peptide</th>
+          <th>Target Dose</th>
+          <th>Volume</th>
+          <th>Units</th>
+          <th>Frequency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Retatrutide</strong></td>
+          <td>Per ramp schedule</td>
+          <td>See ramp</td>
+          <td>See ramp</td>
+          <td>Once weekly</td>
+        </tr>
+        <tr>
+          <td><strong>BPC/TB Wolverine</strong></td>
+          <td>2 mg total blend</td>
+          <td>0.3 ml</td>
+          <td>30 units</td>
+          <td>EOD (every other day)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-<section id="ramp">
-  <h2>3. Retatrutide Ramp Schedule (Starts at 0.5 mg)</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Week</th>
-        <th>Dose</th>
-        <th>Draw (ml)</th>
-        <th>Units</th>
-        <th>Notes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>1–2</td><td>0.5 mg</td><td>0.03</td><td>3</td><td>Starting dose</td></tr>
-      <tr><td>3</td><td>0.5 mg</td><td>0.03</td><td>3</td><td>—</td></tr>
-      <tr><td>4–5</td><td>1 mg</td><td>0.06</td><td>6</td><td>—</td></tr>
-      <tr><td>6–7</td><td>2 mg</td><td>0.12</td><td>12</td><td>—</td></tr>
-      <tr><td>8–9</td><td>4 mg</td><td>0.24</td><td>24</td><td>Peak therapeutic</td></tr>
-      <tr><td>10</td><td>2 mg</td><td>0.12</td><td>12</td><td>Taper begins</td></tr>
-      <tr><td>11</td><td>1 mg</td><td>0.06</td><td>6</td><td>—</td></tr>
-      <tr><td>12</td><td>0.5 mg</td><td>0.03</td><td>3</td><td>Final taper</td></tr>
-    </tbody>
-  </table>
-  <p>Vials needed: <strong>~4–5 vials of 50 mg</strong> for the 12-week run. BPC/TB Wolverine: 2 mg total (30 units) EOD.</p>
-</section>
+  <h2 id="ramp"><span class="num">05</span>Retatrutide Ramp Schedule</h2>
+  <p style="color: var(--muted); font-style: italic;">12-week protocol: ramp up to peak therapeutic dose, then taper down.</p>
 
-<section id="schedule">
-  <h2>4. Daily &amp; Weekly Schedule</h2>
-  <div class="grid">
-    <div class="card">
-      <div class="label">Every Other Day (EOD)</div>
-      <div class="value">BPC/TB Wolverine Blend</div>
-      <div class="note">2 mg total (30 units)</div>
+  <div class="ramp-viz">
+    <div class="ramp-bars">
+      <div class="ramp-bar"><div class="bar" style="height: 8px"></div><div class="dose">0.5mg</div><div class="wk">W1–2</div></div>
+      <div class="ramp-bar"><div class="bar" style="height: 8px"></div><div class="dose">0.5mg</div><div class="wk">W3</div></div>
+      <div class="ramp-bar"><div class="bar" style="height: 16px"></div><div class="dose">1mg</div><div class="wk">W4–5</div></div>
+      <div class="ramp-bar"><div class="bar" style="height: 32px"></div><div class="dose">2mg</div><div class="wk">W6–7</div></div>
+      <div class="ramp-bar peak"><div class="bar" style="height: 64px"></div><div class="dose">4mg</div><div class="wk">W8–9</div></div>
+      <div class="ramp-bar taper"><div class="bar" style="height: 32px"></div><div class="dose">2mg</div><div class="wk">W10</div></div>
+      <div class="ramp-bar taper"><div class="bar" style="height: 16px"></div><div class="dose">1mg</div><div class="wk">W11</div></div>
+      <div class="ramp-bar taper"><div class="bar" style="height: 8px"></div><div class="dose">0.5mg</div><div class="wk">W12</div></div>
     </div>
-    <div class="card">
-      <div class="label">Once Weekly</div>
-      <div class="value">Retatrutide</div>
-      <div class="note">Per ramp schedule (same day/time recommended, e.g., Monday morning)</div>
+    <div class="ramp-legend">
+      <div class="legend-item"><span class="legend-swatch sw-ramp"></span>Ramp up</div>
+      <div class="legend-item"><span class="legend-swatch sw-peak"></span>Peak therapeutic</div>
+      <div class="legend-item"><span class="legend-swatch sw-taper"></span>Taper down</div>
     </div>
   </div>
-</section>
 
-<section id="lifestyle">
-  <h2>Lifestyle Requirements (For Maximum Results)</h2>
-  <ul>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Week</th>
+          <th>Dose</th>
+          <th>Draw (ml)</th>
+          <th>Units</th>
+          <th>Phase</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1–2</td><td>0.5 mg</td><td>0.03</td><td>3</td><td>Starting dose</td></tr>
+        <tr><td>3</td><td>0.5 mg</td><td>0.03</td><td>3</td><td>—</td></tr>
+        <tr><td>4–5</td><td>1 mg</td><td>0.06</td><td>6</td><td>—</td></tr>
+        <tr><td>6–7</td><td>2 mg</td><td>0.12</td><td>12</td><td>—</td></tr>
+        <tr><td>8–9</td><td><strong>4 mg</strong></td><td>0.24</td><td>24</td><td><strong>Peak therapeutic</strong></td></tr>
+        <tr class="taper"><td>10</td><td>2 mg</td><td>0.12</td><td>12</td><td>Taper begins</td></tr>
+        <tr class="taper"><td>11</td><td>1 mg</td><td>0.06</td><td>6</td><td>—</td></tr>
+        <tr class="taper"><td>12</td><td>0.5 mg</td><td>0.03</td><td>3</td><td>Final taper</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="color: var(--muted); margin-top: 16px;"><strong>Vials needed:</strong> ~4–5 vials of 50 mg for the 12-week run. BPC/TB Wolverine: 2 mg total (30 units) EOD.</p>
+
+  <h2 id="schedule"><span class="num">06</span>Daily &amp; Weekly Schedule</h2>
+  <div class="schedule-grid">
+    <div class="schedule-card">
+      <div class="freq">Every Other Day · EOD</div>
+      <div class="name">BPC/TB Wolverine Blend</div>
+      <div class="dose">2 mg total · 30 units</div>
+      <div class="note">Gut repair + inflammation control</div>
+    </div>
+    <div class="schedule-card">
+      <div class="freq">Once Weekly · Same Day</div>
+      <div class="name">Retatrutide</div>
+      <div class="dose">Per ramp schedule</div>
+      <div class="note">Monday morning recommended</div>
+    </div>
+  </div>
+
+  <h2 id="lifestyle"><span class="num">07</span>Lifestyle Requirements</h2>
+  <ul class="lifestyle-list">
     <li>Moderate calorie deficit or maintenance with high protein (1.6–2.2 g/kg) and high-fiber foods</li>
     <li>Resistance training 3–4×/week + daily walking (aim for 8,000+ steps)</li>
     <li>Regular blood sugar monitoring (fasting + post-meal)</li>
     <li>7–9 hours sleep, stress management, hydration + electrolytes</li>
     <li>Track weight, waist circumference, energy, and glucose daily/weekly</li>
   </ul>
+
   <div class="callout warn">
-    <strong>Monitoring:</strong> Bloodwork at baseline, week 4, 8, and 12. Watch closely for GI sides, blood sugar changes, or injection reactions.
+    <strong>Monitoring cadence:</strong> Bloodwork at baseline, week 4, 8, and 12. Watch closely for GI sides, blood sugar changes, or injection reactions.
   </div>
-</section>
 
-<section id="evidence">
-  <h2>Detailed Benefits Breakdown &amp; Supporting Evidence</h2>
+  <h2 id="evidence"><span class="num">08</span>Benefits &amp; Supporting Evidence</h2>
 
-  <h3>Retatrutide (Triple Agonist)</h3>
-  <p><strong>Key benefits:</strong> Strong appetite control, significant fat loss (especially visceral), improved insulin sensitivity, and excellent blood sugar regulation. Ideal for pre-diabetes reversal.</p>
-  <p><strong>Evidence:</strong> Phase 2/3 trials demonstrated up to 17–24% body weight loss with major improvements in A1C and metabolic markers.</p>
+  <div class="evidence-grid">
+    <div class="evidence-card">
+      <div class="label">Triple Agonist</div>
+      <h3>Retatrutide</h3>
+      <p><strong>Key benefits:</strong> Strong appetite control, significant fat loss (especially visceral), improved insulin sensitivity, and excellent blood sugar regulation. Ideal for pre-diabetes reversal.</p>
+      <span class="evidence-tag">Phase 2/3 Trials</span>
+    </div>
+    <div class="evidence-card">
+      <div class="label">Healing Blend</div>
+      <h3>BPC/TB Wolverine</h3>
+      <p><strong>Key benefits:</strong> Repairs gut lining, reduces leaky gut and systemic inflammation (major driver of insulin resistance). TB-500 component adds tissue repair, angiogenesis, and overall recovery.</p>
+      <span class="evidence-tag">Preclinical + Sikiric et al.</span>
+    </div>
+  </div>
 
-  <h3>BPC/TB Wolverine Blend</h3>
-  <p><strong>Key benefits:</strong> Repairs gut lining, reduces leaky gut and systemic inflammation (major driver of insulin resistance). TB-500 component adds tissue repair, angiogenesis, and overall recovery.</p>
-  <p><strong>Evidence:</strong> Extensive preclinical studies (Sikiric et al. for BPC-157) on GI healing and anti-inflammatory effects combined with Thymosin Beta-4 research for tissue regeneration.</p>
-</section>
+  <h2 id="synergy"><span class="num">09</span>Stacking Synergy</h2>
+  <div class="goals-grid">
+    <div class="goal-card">
+      <div class="goal-num">▲</div>
+      <div class="goal-text"><strong style="color: var(--rose-light);">Retatrutide</strong> — powerful metabolic fat-loss combination</div>
+    </div>
+    <div class="goal-card">
+      <div class="goal-num">◆</div>
+      <div class="goal-text"><strong style="color: var(--sage);">BPC/TB Blend</strong> — essential gut &amp; inflammation control for better insulin sensitivity</div>
+    </div>
+  </div>
 
-<section id="synergy">
-  <h2>Stacking Synergy</h2>
-  <ul>
-    <li><strong>Retatrutide</strong> = powerful metabolic fat-loss combination</li>
-    <li><strong>BPC/TB Blend</strong> = essential gut and inflammation control for better insulin sensitivity</li>
-  </ul>
   <div class="callout good">
     This streamlined protocol focuses purely on the core metabolic, fat loss, and healing elements. GHK-Cu and Semax can be added in future cycles once the foundation is stable. This protocol is designed to be effective yet gentle for pre-diabetic women. Work closely with a knowledgeable <em>pepatician</em> (Sir Farner MD).
   </div>
-</section>
-
-<footer>
-  <p><strong>Jack Has Nothing on Jill Protocol</strong> · Phase 1 · Pre-Diabetic Metabolic Optimization</p>
-  <p style="margin-top: 8px;">
-    Live links:
-    <a href="https://jackhasnothingonjill-protocol.surge.sh">jackhasnothingonjill-protocol.surge.sh</a>
-    ·
-    <a href="https://theastark1-cpu.github.io/peptides/jack-has-nothing-on-jill-protocol.html">GitHub Pages</a>
-  </p>
-  <p style="margin-top: 8px; color: var(--muted); font-style: italic;">Compiled from source: Jack_Has_Nothing_on_Jill_Protocol_1.pdf</p>
-</footer>
 
 </div>
+
+<footer>
+  <p style="color: var(--rose-light); font-style: italic; margin-bottom: 8px;">Jack Has Nothing on Jill Protocol · Phase 1</p>
+  <p>Pre-Diabetic Metabolic Optimization</p>
+  <div class="footer-links">
+    <a href="https://jackhasnothingonjill-protocol.surge.sh">↗ jackhasnothingonjill-protocol.surge.sh</a>
+    <a href="https://theastark1-cpu.github.io/peptides/jack-has-nothing-on-jill-protocol.html">↗ GitHub Pages</a>
+  </div>
+  <p style="margin-top: 16px; font-size: 0.78rem; opacity: 0.7;">Compiled from source: Jack_Has_Nothing_on_Jill_Protocol_1.pdf</p>
+</footer>
+
 </body>
 </html>
