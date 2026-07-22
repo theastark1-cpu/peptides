@@ -513,6 +513,16 @@
     <h3 style="font-weight:400;color:#c9a0dc;margin-bottom:8px;">Toning</h3>
     <p style="color:var(--text-muted);">GH-driven visceral fat reduction, lean body composition, and metabolic optimization</p>
   </div>
+  <div class="card" style="text-align:center;">
+    <div style="font-size:2.4rem;margin-bottom:8px;">🛡️</div>
+    <h3 style="font-weight:400;color:var(--green-mint);margin-bottom:8px;">Antioxidant Defense</h3>
+    <p style="color:var(--text-muted);">Reduced glutathione supports redox balance and oxidative-stress defense as a twice-weekly add-on</p>
+  </div>
+  <div class="card" style="text-align:center;">
+    <div style="font-size:2.4rem;margin-bottom:8px;">⚖️</div>
+    <h3 style="font-weight:400;color:var(--green-pale);margin-bottom:8px;">Appetite Control</h3>
+    <p style="color:var(--text-muted);">Retatrutide adds a slow-titrated weekly appetite and weight-loss lever while protecting lean mass</p>
+  </div>
 </div>
 
 <div id="main-content">
@@ -614,6 +624,9 @@
         <td style="text-align:center;background:rgba(152,152,176,0.06);color:var(--text-muted);padding:14px 12px;">❌ OFF<br><span style="font-size:0.7rem;">Rest day</span></td>
         <td style="text-align:center;background:rgba(107,168,138,0.15);color:var(--green-light);padding:14px 12px;font-weight:700;">✅ ON<br><span style="font-size:0.7rem;font-weight:400;color:var(--text-muted);">3 injections</span></td>
       </tr>
+      <tr>
+        <td style="text-align:center;color:var(--text-muted);">—</td><td style="text-align:center;color:var(--green-light);">GSH 300mg</td><td style="text-align:center;color:var(--text-muted);">—</td><td style="text-align:center;color:var(--text-muted);">—</td><td style="text-align:center;color:var(--text-muted);">—</td><td style="text-align:center;color:var(--green-light);">GSH 300mg</td><td style="text-align:center;color:var(--green-pale);">Reta weekly</td>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -673,6 +686,8 @@
       <tr id="row-dsip"><td>DSIP</td><td></td><td></td><td>2 on / 1 off</td></tr>
       <tr id="row-pinealon"><td>Pinealon</td><td></td><td></td><td>30d on / 90d off</td></tr>
       <tr id="row-kpv"><td>KPV</td><td></td><td></td><td>EOD year-round</td></tr>
+      <tr id="row-glutathione"><td>Glutathione</td><td></td><td></td><td>Tue/Sat</td></tr>
+      <tr id="row-reta"><td>Retatrutide</td><td></td><td></td><td>4-week dose steps</td></tr>
     </tbody>
   </table>
 </div>
@@ -720,8 +735,15 @@
     var pNext = pOn ? (30 - pd) : (120 - pd);
     updateRow('row-pinealon', pOn, pOn ? 'Day ' + (pd + 1) + '/30' : 'OFF · next in ' + pNext + 'd', pOn ? Math.round((pd + 1) / 30 * 100) : 0, '30d on / 90d off');
 
-    // KPV: always on
+    // KPV + glutathione maintenance
     updateRow('row-kpv', true, 'Week ' + week, 100, 'EOD year-round');
+    updateRow('row-glutathione', true, '300 mg Tue/Sat', 100, 'Twice weekly');
+
+    // Reta: four-week titration steps
+    var retaStep = Math.min(3, Math.floor((week - 1) / 4));
+    var retaDose = [0.5, 1.0, 1.5, 2.0][retaStep];
+    var retaUnits = [10, 20, 30, 40][retaStep];
+    updateRow('row-reta', true, retaDose.toFixed(1) + ' mg / ' + retaUnits + 'u', Math.min(100, Math.round(week / 13 * 100)), 'Sunday · hold if effective');
   }
 
   function updateRow(id, isOn, label, pct, cycle) {
@@ -965,6 +987,8 @@
         </td>
         <td><strong style="color:var(--green-light);">34</strong></td>
       </tr>
+      <tr><td><span class="rank-badge" style="background:var(--card);color:var(--text-muted);border:1px solid var(--border);">7</span></td><td><strong>Reduced Glutathione</strong></td><td style="font-size:0.72rem;">Antioxidant Defense</td><td><div class="score-bar"><div class="fill fill-sleep" style="width:20%;"></div><span class="pct">20</span></div></td><td><div class="score-bar"><div class="fill fill-gut" style="width:45%;"></div><span class="pct">45</span></div></td><td><div class="score-bar"><div class="fill fill-hair" style="width:40%;"></div><span class="pct">40</span></div></td><td><div class="score-bar"><div class="fill fill-sleep" style="width:25%;"></div><span class="pct">25</span></div></td><td><div class="score-bar"><div class="fill fill-hair" style="width:20%;"></div><span class="pct">20</span></div></td><td><strong style="color:var(--green-light);">30</strong></td></tr>
+      <tr><td><span class="rank-badge rank-2">2</span></td><td><strong>Retatrutide</strong></td><td style="font-size:0.72rem;">Triple-Agonist Weight Loss</td><td><div class="score-bar"><div class="fill fill-sleep" style="width:20%;"></div><span class="pct">20</span></div></td><td><div class="score-bar"><div class="fill fill-gut" style="width:30%;"></div><span class="pct">30</span></div></td><td><div class="score-bar"><div class="fill fill-hair" style="width:15%;"></div><span class="pct">15</span></div></td><td><div class="score-bar"><div class="fill fill-sleep" style="width:20%;"></div><span class="pct">20</span></div></td><td><div class="score-bar"><div class="fill fill-hair" style="width:98%;"></div><span class="pct">98</span></div></td><td><strong style="color:var(--green-light);">37</strong></td></tr>
     </tbody>
   </table>
   <p style="font-size:0.78rem;color:var(--text-muted);margin-top:12px;font-style:italic;">
@@ -981,7 +1005,7 @@
 </div>
 
 <p style="text-align:center;color:var(--text-muted);margin-bottom:32px;">
-  All vials assumed to be <strong>10 mg lyophilized powder</strong> unless otherwise noted.
+  Peptide vials are assumed to be <strong>10 mg lyophilized powder</strong> unless otherwise noted; glutathione is a separate 1,500 mg injectable product.
   Bacteriostatic water volumes are optimized for comfortable, accurate injection volumes.
 </p>
 
@@ -1302,6 +1326,8 @@
         <td colspan="3" style="text-align:center;background:rgba(212,165,116,0.10);color:var(--green-light);">✅ 30-Day Course</td>
         <td colspan="8" style="text-align:center;background:rgba(152,152,176,0.06);color:var(--text-muted);">OFF — 90-Day Break (3 cycles/year)</td>
       </tr>
+      <tr><td><strong>Glutathione</strong></td><td colspan="11" style="text-align:center;background:rgba(107,168,138,0.10);color:var(--green-light);">300 mg · Tuesday + Saturday · continuous if tolerated</td></tr>
+      <tr style="border-bottom:2px solid var(--green-accent);"><td><strong>Retatrutide</strong></td><td colspan="2" style="text-align:center;">0.5 mg</td><td colspan="2" style="text-align:center;">1.0 mg</td><td colspan="2" style="text-align:center;">1.5 mg</td><td colspan="5" style="text-align:center;background:rgba(199,125,141,0.10);color:var(--green-pale);">2.0 mg max only if needed/tolerated</td></tr>
     </tbody>
   </table>
 </div>
@@ -1317,6 +1343,8 @@
       <tr><td><strong>GHK-Cu</strong></td><td>30 days on / 14 days off</td><td>Matches skin/hair follicle cycle (~28d). Prevents copper buildup.</td></tr>
       <tr><td><strong>DSIP</strong></td><td>2 weeks on / 1 week off</td><td>Prevents receptor desensitization. 2:1 ratio preserves sleep efficacy.</td></tr>
       <tr><td><strong>Pinealon</strong></td><td>30 days on / 90 days off</td><td>Extended 30-day cycle activates full gene-expression cascade. 3:1 off:on ratio. 3 cycles/year.</td></tr>
+      <tr><td><strong>Glutathione</strong></td><td>300 mg Tue/Sat</td><td>Maintenance antioxidant support; separate injection using only label-approved route/diluent.</td></tr>
+      <tr><td><strong>Retatrutide</strong></td><td>Weekly · 4-week steps</td><td>Slow titration controls GI burden; stop escalating when appetite and weight response are adequate.</td></tr>
     </tbody>
   </table>
 </div>
@@ -1345,8 +1373,8 @@
 
 <div class="card">
   <ul class="checklist">
-    <li><strong>U-100 insulin syringes</strong> — 31G, 5/16" or 8mm needle, 1 mL capacity. Estimate ~35 syringes/week (5–6 per day × 7 days minus off-days). Buy in boxes of 100.</li>
-    <li><strong>Bacteriostatic water</strong> — 30 mL multi-dose vials. Estimate 2–3 bottles for initial reconstitution of all 6 peptides (14 mL total with Pinealon's 1 mL reconstitution). Keep a spare.</li>
+    <li><strong>U-100 insulin syringes</strong> — 31G, 5/16" or 8mm needle, 1 mL capacity. Include 3 additional separate syringes weekly for glutathione (2) and Reta (1). Buy in boxes of 100.</li>
+    <li><strong>Bacteriostatic water</strong> — 30 mL multi-dose vials. Estimate 2–3 bottles for initial reconstitution of the peptide stack plus Reta; glutathione diluent must follow its own product label. Keep a spare.</li>
     <li><strong>Alcohol swabs</strong> — 2 per injection (vial stopper wipe + skin prep). ~12–14 per day. Buy bulk boxes of 200+.</li>
     <li><strong>Sharps container</strong> — FDA-approved, puncture-resistant. Available at any pharmacy.</li>
     <li><strong>Vial storage case</strong> — Insulin vial organizer or small cosmetic fridge organizer to keep reconstituted vials upright and organized in the refrigerator.</li>
@@ -1388,6 +1416,12 @@
 </div>
 
 <div class="card">
+  <p><strong style="color:var(--green-light);">Q: How do Reta and glutathione fit the EOD schedule?</strong></p>
+  <p style="color:var(--text-muted);margin-bottom:20px;">A: They sit outside the alternating core schedule. Glutathione is Tuesday and Saturday at 300 mg. Reta is Sunday once weekly using the 10/20/30/40u titration. Both always use separate syringes.</p>
+
+  <p><strong style="color:var(--green-light);">Q: Should Reta automatically reach 2 mg?</strong></p>
+  <p style="color:var(--text-muted);margin-bottom:20px;">A: No. Each step lasts four weeks, and escalation only occurs if the current dose is tolerated and no longer providing adequate appetite control. Persistent GI effects, dehydration, or excessive weight loss mean hold or reduce.</p>
+
   <p><strong style="color:var(--green-light);">Q: Can I combine more peptides in the same syringe?</strong></p>
   <p style="color:var(--text-muted);margin-bottom:20px;">A: <strong>Semax + KPV + GHK-Cu (AM triple combo):</strong> Yes — all three are compatible. Draw KPV (5u) first, then Semax (10u), then GHK-Cu (20u) for a total of 35 units. Tested and confirmed. GHK-Cu's copper ion does not precipitate Semax or KPV.<br><strong>Pinealon + DSIP (PM combo):</strong> Yes — draw DSIP (4u) first, then Pinealon (50u). Total: 54 units. Both target sleep/circadian pathways. <strong>Tesamorelin:</strong> Must remain separate — different pH and receptor pathway. Never combine Tesamorelin with other peptides in the same syringe.</p>
 
