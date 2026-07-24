@@ -407,49 +407,6 @@
     margin-top: 60px;
   }
 
-  /* ── Password Gate ───────────────────── */
-  /* Unlocked state — show content immediately */
-  html.unlocked #main-content { display: block !important; }
-  html.unlocked #pw-overlay { display: none !important; }
-
-  #pw-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: var(--bg);
-    display: flex; align-items: center; justify-content: center;
-    z-index: 9999;
-    font-family: 'Georgia', 'Times New Roman', serif;
-  }
-  #pw-overlay.hidden { display: none; }
-  #pw-box {
-    text-align: center;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 48px 40px;
-    max-width: 400px;
-    width: 90%;
-  }
-  #pw-box h2 {
-    font-size: 1.6rem; font-weight: 400; color: var(--blue-light);
-    margin-bottom: 8px; letter-spacing: 0.04em;
-  }
-  #pw-box .pw-sub {
-    font-size: 0.85rem; color: var(--text-muted); margin-bottom: 28px;
-  }
-  #pw-box input {
-    width: 100%; padding: 14px 18px;
-    background: var(--bg); border: 1px solid var(--border);
-    border-radius: 10px; color: var(--text); font-size: 1.1rem;
-    text-align: center; outline: none; font-family: inherit;
-    letter-spacing: 0.1em;
-    transition: border-color 0.2s;
-  }
-  #pw-box input:focus { border-color: var(--blue); }
-  #pw-box .pw-error {
-    color: var(--danger); font-size: 0.8rem; margin-top: 12px;
-    display: none;
-  }
-  #pw-box .pw-error.show { display: block; }
 
   /* ── Highlight row in calendar ───────── */
   .cal-on { color: var(--blue-light); font-weight: 600; }
@@ -488,18 +445,6 @@
 <!-- ═══════════════════════════════════════ -->
 <!-- PASSWORD GATE                            -->
 <!-- ═══════════════════════════════════════ -->
-<div id="pw-overlay" class="hidden">
-  <div id="pw-box">
-    <h2>🏔️ The Big Fella Protocol</h2>
-    <p class="pw-sub">Enter password to continue</p>
-    <input type="password" id="pw-input" placeholder="••••••••••" autocomplete="off">
-    <div style="margin-top:16px;">
-      <button id="pw-btn" style="background:var(--blue);color:var(--bg);border:none;padding:10px 32px;border-radius:8px;font-size:0.9rem;cursor:pointer;font-family:inherit;letter-spacing:0.04em;">Unlock</button>
-    </div>
-    <p id="pw-error" class="pw-error">Incorrect password — try again</p>
-  </div>
-</div>
-
 
 <!-- ═══════════════════════════════════════ -->
 <!-- HERO                                     -->
@@ -549,7 +494,7 @@
   <div class="card" style="text-align:center;"><div style="font-size:2.4rem;margin-bottom:8px;">⚖️</div><h3 style="font-weight:400;color:var(--blue-light);margin-bottom:8px;">Appetite Control</h3><p style="color:var(--text-muted);">Reta supplies the strongest weight-loss lever, titrated slowly to preserve function and lean mass</p></div>
 </div>
 
-<div id="main-content">
+<div>
 
 <!-- ═══════════════════════════════════════ -->
 
@@ -1377,61 +1322,10 @@
 </div>
 
 </div><!-- /container -->
-</div><!-- /main-content -->
+</div>
 
 
-<script>
-(function() {
-  var PW = 'trailboss';
-  var STORAGE_KEY = 'bfp_unlocked';
-  
-  // Hide overlay immediately if already unlocked this session
-  if (sessionStorage.getItem(STORAGE_KEY) === PW) {
-    document.documentElement.classList.add('unlocked');
-  }
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    // Already unlocked — nothing to do
-    if (sessionStorage.getItem(STORAGE_KEY) === PW) return;
-    
-    var content = document.getElementById('main-content');
-    var overlay = document.getElementById('pw-overlay');
-    var input = document.getElementById('pw-input');
-    var error = document.getElementById('pw-error');
-    var body = document.body;
-    
-    // Lock the page
-    overlay.classList.remove('hidden');
-    body.style.overflow = 'hidden';
-    
-    input.focus();
-    function tryUnlock() {
-      if (input.value.trim().toLowerCase() === PW) {
-        sessionStorage.setItem(STORAGE_KEY, PW);
-        overlay.classList.add('hidden');
-        body.style.overflow = '';
-        // Force reflow to fix scroll issue
-        content.style.display = 'block';
-        void content.offsetHeight; // trigger reflow
-        content.style.display = '';
-        // Small delay then scroll reset to ensure layout settles
-        setTimeout(function() {
-          window.scrollTo(0, 0);
-        }, 50);
-      } else {
-        error.classList.add('show');
-        input.value = '';
-        input.focus();
-        setTimeout(function() { error.classList.remove('show'); }, 2000);
-      }
-    }
-    input.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') tryUnlock();
-    });
-    document.getElementById('pw-btn').addEventListener('click', tryUnlock);
-  });
-})();
-</script>
+
 
 </body>
 </html>

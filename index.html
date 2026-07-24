@@ -395,45 +395,6 @@
   .ranking-table td:last-child { text-align: center; min-width: 44px; font-size: 1rem; }
 
 
-  /* ── Password Gate ───────────────────── */
-  #pw-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: var(--bg);
-    display: flex; align-items: center; justify-content: center;
-    z-index: 9999;
-    font-family: 'Georgia', 'Times New Roman', serif;
-  }
-  #pw-overlay.hidden { display: none; }
-  #pw-box {
-    text-align: center;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 48px 40px;
-    max-width: 400px;
-    width: 90%;
-  }
-  #pw-box h2 {
-    font-size: 1.6rem; font-weight: 400; color: var(--green-light);
-    margin-bottom: 8px; letter-spacing: 0.04em;
-  }
-  #pw-box .pw-sub {
-    font-size: 0.85rem; color: var(--text-muted); margin-bottom: 28px;
-  }
-  #pw-box input {
-    width: 100%; padding: 14px 18px;
-    background: var(--bg); border: 1px solid var(--border);
-    border-radius: 10px; color: var(--text); font-size: 1.1rem;
-    text-align: center; outline: none; font-family: inherit;
-    letter-spacing: 0.1em;
-    transition: border-color 0.2s;
-  }
-  #pw-box input:focus { border-color: var(--green-accent); }
-  #pw-box .pw-error {
-    color: var(--danger); font-size: 0.8rem; margin-top: 12px;
-    display: none;
-  }
-  #pw-box .pw-error.show { display: block; }
 
   /* ── Print ───────────────────────────── */
   @media print {
@@ -450,18 +411,6 @@
   <a href="big-fella.html">Big Fella</a>
   <a href="https://theastark1-cpu.github.io/cheetah-greek-protocol/">Cheetah Greek</a>
 </nav>
-
-<div id="pw-overlay" class="hidden">
-  <div id="pw-box">
-    <h2>🔒 The Sweet Lady Protocol</h2>
-    <p class="pw-sub">Enter password to continue</p>
-    <input type="password" id="pw-input" placeholder="••••••••••" autocomplete="off">
-    <div style="margin-top:16px;">
-      <button id="pw-btn" style="background:var(--green-accent);color:var(--bg);border:none;padding:10px 32px;border-radius:8px;font-size:0.9rem;cursor:pointer;font-family:inherit;letter-spacing:0.04em;">Unlock</button>
-    </div>
-    <p id="pw-error" class="pw-error">Incorrect password — try again</p>
-  </div>
-</div>
 
 
 <!-- ═══════════════════════════════════════ -->
@@ -525,7 +474,7 @@
   </div>
 </div>
 
-<div id="main-content">
+<div>
 <!-- ═══════════════════════════════════════ -->
 <!-- EOD DOSAGE SCHEDULE                       -->
 <!-- ═══════════════════════════════════════ -->
@@ -1445,40 +1394,7 @@
 </div><!-- /container -->
 
 
-<script>
-(function() {
-  var PW = 'mommabear';
-  var unlocked = sessionStorage.getItem('slp_unlocked') === PW;
-  if (!unlocked) {
-    document.write('<style>#main-content{display:none}</style>');
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    if (unlocked) return;
-    var content = document.getElementById('main-content');
-    var overlay = document.getElementById('pw-overlay');
-    var input = document.getElementById('pw-input');
-    var error = document.getElementById('pw-error');
-    overlay.classList.remove('hidden');
-    input.focus();
-    function tryUnlock() {
-      if (input.value.trim().toLowerCase() === PW) {
-        sessionStorage.setItem('slp_unlocked', PW);
-        overlay.classList.add('hidden');
-        content.style.display = 'block';
-      } else {
-        error.classList.add('show');
-        input.value = '';
-        input.focus();
-        setTimeout(function() { error.classList.remove('show'); }, 2000);
-      }
-    }
-    input.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') tryUnlock();
-    });
-    document.getElementById('pw-btn').addEventListener('click', tryUnlock);
-  });
-})();
-</script>
+
 
 </div>
 </body>
